@@ -256,5 +256,16 @@ namespace Stationery
             InsertStaff();
         }
 
+        private void btnDeliveries_Click(object sender, EventArgs e)
+        {
+            button_Click(sender, e);
+            pages.SetPage("Поставки");
+        }
+
+        private void btnProviders_Click(object sender, EventArgs e)
+        {
+            button_Click(sender, e);
+            pages.SetPage("Поставщики");
+        }
     }
 }
