@@ -1,17 +1,19 @@
 ﻿using Bunifu.Framework.UI;
 using System;
+using System.Data.SqlClient;
 using System.Windows.Forms;
-using System.Data.SQLite;
 using System.Collections.Generic;
 
 namespace Stationery
 {
     public partial class MainForm : Form
     {
-        private string conStr = @"Data Source=|DataDirectory|\Stationery.db;Version=3";
-        private SQLiteConnection con;
-        private SQLiteCommand cmd;
-        private SQLiteDataReader reader;
+        //private string conStr = @"Data Source=|DataDirectory|\Stationery.db;Version=3";
+        private string conStr = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog = Stationery; Integrated Security = True; " + 
+            "Connect Timeout = 30; Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        private SqlConnection con;
+        private SqlCommand cmd;
+        private SqlDataReader reader;
         private int curPage = 0;
 
         public MainForm()
@@ -24,8 +26,8 @@ namespace Stationery
          ===========================*/
         private void StaffFill()
         {
-            using (con = new SQLiteConnection(conStr))
-            using (cmd = new SQLiteCommand("SELECT * FROM Staff", con))
+            using (con = new SqlConnection(conStr))
+            using (cmd = new SqlCommand("SELECT * FROM Staff", con))
             {
                 try
                 {
@@ -44,7 +46,7 @@ namespace Stationery
                     foreach (string[] s in data)
                         dgvStaff.Rows.Add(s);
                 }
-                catch (SQLiteException)
+                catch (SqlException)
                 {
                     throw;
                 }
@@ -53,8 +55,8 @@ namespace Stationery
 
         private void InsertStaff()
         {
-            using (con = new SQLiteConnection(conStr))
-            using (cmd = new SQLiteCommand("INSERT into Staff(name_staff, phone_staff) VALUES (@name, @phone)", con))
+            using (con = new SqlConnection(conStr))
+            using (cmd = new SqlCommand("INSERT into Staff(name_staff, phone_staff) VALUES (@name, @phone)", con))
             {
                 if (!tbNameStaff.Text.Equals("") && !tbPhoneStaff.Text.Equals(""))
                 {
@@ -73,7 +75,7 @@ namespace Stationery
                     MessageBox.Show("Запись добавлена", "Уведомление", MessageBoxButtons.OK,
                     MessageBoxIcon.Information, MessageBoxDefaultButton.Button2);
                 }
-                catch (SQLiteException)
+                catch (SqlException)
                 {
                     MessageBox.Show("Заполните все данные!", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
@@ -88,8 +90,8 @@ namespace Stationery
             if (dgvStaff.SelectedRows.Count > 0)
                 curRow = dgvStaff.SelectedRows[0].Index;
 
-            using (con = new SQLiteConnection(conStr))
-            using (cmd = new SQLiteCommand("UPDATE Staff SET name_staff = @name, phone_staff = @phone " +
+            using (con = new SqlConnection(conStr))
+            using (cmd = new SqlCommand("UPDATE Staff SET name_staff = @name, phone_staff = @phone " +
                 "WHERE id_staff = @code", con))
             {
                 if (!tbUpdNameStaff.Text.Equals("") && !tbUpdPhoneStaff.Text.Equals(""))
@@ -114,7 +116,7 @@ namespace Stationery
                     MessageBox.Show("Редактирование успешно выполнено", "Уведомление", MessageBoxButtons.OK,
                     MessageBoxIcon.Information, MessageBoxDefaultButton.Button2);
                 }
-                catch (SQLiteException)
+                catch (SqlException)
                 {
                     throw;
                     //MessageBox.Show("Заполните все данные!", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -126,8 +128,8 @@ namespace Stationery
          ===========================*/
         private void DeleteStaff(int[] deletedRows)
         {
-            using (con = new SQLiteConnection(conStr))
-            using (cmd = new SQLiteCommand("PRAGMA foreign_keys = ON; DELETE FROM Staff WHERE id_staff = @code;", con))
+            using (con = new SqlConnection(conStr))
+            using (cmd = new SqlCommand("DELETE FROM Staff WHERE id_staff = @code;", con))
             {
                 try
                 {
@@ -140,7 +142,7 @@ namespace Stationery
                         cmd.Parameters.Clear();
                     }
                 }
-                catch (SQLiteException)
+                catch (SqlException)
                 {
                     throw;
                 }
@@ -162,10 +164,23 @@ namespace Stationery
 
         /*SEARCH
          ===========================*/
+        private void tbSearch_TextChanged(object sender, EventArgs e)
+        {
+            int n = pages.SelectedIndex;
+            switch (n)
+            {
+                //case 0: ; break;
+                case 1: SearchStaff(); break;
+                    //case 2: ; break;
+                    //case 3: ; break;
+                    //case 4: ; break;
+            }
+        }
+
         private void SearchStaff()
         {
-            using (con = new SQLiteConnection(conStr))
-            using (cmd = new SQLiteCommand("SELECT * FROM Staff WHERE name_staff LIKE @name", con))
+            using (con = new SqlConnection(conStr))
+            using (cmd = new SqlCommand("SELECT * FROM Staff WHERE name_staff LIKE @name", con))
             {
                 cmd.Parameters.AddWithValue("@name", '%' + tbSearch.Text + '%');
 
@@ -194,7 +209,7 @@ namespace Stationery
                             dgvStaff.Rows.Add(s);
                     }
                 }
-                catch (SQLiteException)
+                catch (SqlException)
                 {
                     throw;
                 }
@@ -373,6 +388,12 @@ namespace Stationery
             pnlMenu.Width = 192;
             transMenu.ShowSync(pnlMenu);
             btnMinMenu.Visible = true;
+        }
+
+        private void btnProducts_sprav_Click(object sender, EventArgs e)
+        {
+            button_Click(sender, e);
+            pages.SetPage("Канцтовары_справочник");
         }
 
         private void btnProducts_Click(object sender, EventArgs e)

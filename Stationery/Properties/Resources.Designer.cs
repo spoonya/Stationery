@@ -73,6 +73,16 @@ namespace Stationery.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap inform_icon {
+            get {
+                object obj = ResourceManager.GetObject("inform-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap stationery_icon {
             get {
                 object obj = ResourceManager.GetObject("stationery-icon", resourceCulture);

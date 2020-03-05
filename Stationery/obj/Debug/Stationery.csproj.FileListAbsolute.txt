@@ -39,10 +39,7 @@ C:\Users\Serega\Desktop\Stationery-accounting-master\Stationery\bin\Debug\Bunifu
 C:\Users\Serega\Desktop\Stationery-accounting-master\Stationery\bin\Debug\Bunifu.UI.WinForm.BunifuShadowPanel.xml
 C:\Users\Serega\Desktop\Stationery-accounting-master\Stationery\bin\Debug\Bunifu.UI.WinForms.BunifuTextbox.dll
 C:\Users\Serega\Desktop\Stationery-accounting-master\Stationery\bin\Debug\Bunifu.UI.WinForms.BunifuTextbox.xml
-C:\Users\Serega\Desktop\Stationery\Stationery\bin\Debug\Stationery.db
 C:\Users\Serega\Desktop\Stationery\Stationery\bin\Debug\Bunifu.UI.WinForm.BunifuShadowPanel.dll
 C:\Users\Serega\Desktop\Stationery\Stationery\bin\Debug\Bunifu.UI.WinForms.BunifuTextbox.dll
-C:\Users\Serega\Desktop\Stationery\Stationery\bin\Debug\System.Data.SQLite.dll
 C:\Users\Serega\Desktop\Stationery\Stationery\bin\Debug\Bunifu.UI.WinForm.BunifuShadowPanel.xml
 C:\Users\Serega\Desktop\Stationery\Stationery\bin\Debug\Bunifu.UI.WinForms.BunifuTextbox.xml
-C:\Users\Serega\Desktop\Stationery\Stationery\bin\Debug\System.Data.SQLite.xml
