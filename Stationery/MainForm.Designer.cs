@@ -50,6 +50,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             Utilities.BunifuPages.BunifuAnimatorNS.Animation animation6 = new Utilities.BunifuPages.BunifuAnimatorNS.Animation();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties4 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties5 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties6 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties7 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
@@ -66,10 +70,6 @@
             Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties18 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties19 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties20 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties4 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties21 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties22 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties23 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
@@ -78,10 +78,6 @@
             Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties26 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties27 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties28 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuAnimatorNS.Animation animation3 = new Bunifu.UI.WinForms.BunifuAnimatorNS.Animation();
-            Bunifu.UI.WinForms.BunifuAnimatorNS.Animation animation4 = new Bunifu.UI.WinForms.BunifuAnimatorNS.Animation();
-            Bunifu.UI.WinForms.BunifuAnimatorNS.Animation animation1 = new Bunifu.UI.WinForms.BunifuAnimatorNS.Animation();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties29 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties30 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties31 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
@@ -90,6 +86,34 @@
             Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties34 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties35 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties36 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties37 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties38 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties39 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties40 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties41 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties42 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties43 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties44 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties45 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties46 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties47 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties48 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties49 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties50 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties51 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties52 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties53 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties54 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties55 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties56 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties57 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties58 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties59 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties60 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuAnimatorNS.Animation animation3 = new Bunifu.UI.WinForms.BunifuAnimatorNS.Animation();
+            Bunifu.UI.WinForms.BunifuAnimatorNS.Animation animation4 = new Bunifu.UI.WinForms.BunifuAnimatorNS.Animation();
+            Bunifu.UI.WinForms.BunifuAnimatorNS.Animation animation1 = new Bunifu.UI.WinForms.BunifuAnimatorNS.Animation();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.menu = new System.Windows.Forms.MenuStrip();
             this.insertRecord = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteRecord = new System.Windows.Forms.ToolStripMenuItem();
@@ -119,7 +143,7 @@
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Providers = new System.Windows.Forms.TabPage();
-            this.bunifuCustomDataGrid4 = new Bunifu.Framework.UI.BunifuCustomDataGrid();
+            this.dgvProviders = new Bunifu.Framework.UI.BunifuCustomDataGrid();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -147,6 +171,9 @@
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pagesOptions = new Bunifu.UI.WinForms.BunifuPages();
+            this.search = new System.Windows.Forms.TabPage();
+            this.tbSearch = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.staffAdd = new System.Windows.Forms.TabPage();
             this.label1 = new System.Windows.Forms.Label();
             this.bunifuShadowPanel1 = new Bunifu.UI.WinForm.BunifuShadowPanel.BunifuShadowPanel();
@@ -159,24 +186,35 @@
             this.btnUpdStaff = new Bunifu.Framework.UI.BunifuFlatButton();
             this.tbUpdPhoneStaff = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
             this.tbUpdNameStaff = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
-            this.search = new System.Windows.Forms.TabPage();
-            this.tbSearch = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.productsSpravAdd = new System.Windows.Forms.TabPage();
             this.label4 = new System.Windows.Forms.Label();
             this.bunifuShadowPanel3 = new Bunifu.UI.WinForm.BunifuShadowPanel.BunifuShadowPanel();
             this.btnProdSpravAdd = new Bunifu.Framework.UI.BunifuFlatButton();
             this.tbProdSpravPhone = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
             this.tbProdSpravName = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
-            this.transColorBtn = new Bunifu.UI.WinForms.BunifuTransition(this.components);
-            this.transButton = new Bunifu.UI.WinForms.BunifuTransition(this.components);
-            this.transOptions = new Bunifu.UI.WinForms.BunifuTransition(this.components);
             this.productsSpravEdit = new System.Windows.Forms.TabPage();
             this.label5 = new System.Windows.Forms.Label();
             this.bunifuShadowPanel4 = new Bunifu.UI.WinForm.BunifuShadowPanel.BunifuShadowPanel();
             this.btnProdSpravEdit = new Bunifu.Framework.UI.BunifuFlatButton();
             this.tbUpdUnitProdSprav = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
             this.tbUpdNameProdSprav = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
+            this.providersAdd = new System.Windows.Forms.TabPage();
+            this.label6 = new System.Windows.Forms.Label();
+            this.bunifuShadowPanel5 = new Bunifu.UI.WinForm.BunifuShadowPanel.BunifuShadowPanel();
+            this.tbProviderAddress = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
+            this.btnProviderAdd = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.tbProviderPhone = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
+            this.tbProviderName = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
+            this.providersEdit = new System.Windows.Forms.TabPage();
+            this.label7 = new System.Windows.Forms.Label();
+            this.bunifuShadowPanel6 = new Bunifu.UI.WinForm.BunifuShadowPanel.BunifuShadowPanel();
+            this.tbUpdProviderAddress = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
+            this.btnProvidersUpd = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.tbUpdProviderPhone = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
+            this.tbUpdProviderName = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
+            this.transColorBtn = new Bunifu.UI.WinForms.BunifuTransition(this.components);
+            this.transButton = new Bunifu.UI.WinForms.BunifuTransition(this.components);
+            this.transOptions = new Bunifu.UI.WinForms.BunifuTransition(this.components);
             this.menu.SuspendLayout();
             this.pnlMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
@@ -188,7 +226,7 @@
             this.Staff.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStaff)).BeginInit();
             this.Providers.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bunifuCustomDataGrid4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProviders)).BeginInit();
             this.Deliveries.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuCustomDataGrid2)).BeginInit();
             this.Products.SuspendLayout();
@@ -196,15 +234,19 @@
             this.Allocation.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bunifuCustomDataGrid1)).BeginInit();
             this.pagesOptions.SuspendLayout();
+            this.search.SuspendLayout();
             this.staffAdd.SuspendLayout();
             this.bunifuShadowPanel1.SuspendLayout();
             this.staffEdit.SuspendLayout();
             this.bunifuShadowPanel2.SuspendLayout();
-            this.search.SuspendLayout();
             this.productsSpravAdd.SuspendLayout();
             this.bunifuShadowPanel3.SuspendLayout();
             this.productsSpravEdit.SuspendLayout();
             this.bunifuShadowPanel4.SuspendLayout();
+            this.providersAdd.SuspendLayout();
+            this.bunifuShadowPanel5.SuspendLayout();
+            this.providersEdit.SuspendLayout();
+            this.bunifuShadowPanel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // menu
@@ -656,10 +698,10 @@
             this.pages.Location = new System.Drawing.Point(192, 294);
             this.pages.Multiline = true;
             this.pages.Name = "pages";
-            this.pages.Page = this.Products_sprav;
-            this.pages.PageIndex = 0;
-            this.pages.PageName = "Products_sprav";
-            this.pages.PageTitle = "Канцтовары_справочник";
+            this.pages.Page = this.Providers;
+            this.pages.PageIndex = 2;
+            this.pages.PageName = "Providers";
+            this.pages.PageTitle = "Поставщики";
             this.pages.SelectedIndex = 0;
             this.pages.Size = new System.Drawing.Size(834, 206);
             this.pages.TabIndex = 25;
@@ -750,6 +792,7 @@
             this.dgvProductsSprav.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvProductsSprav.Size = new System.Drawing.Size(826, 180);
             this.dgvProductsSprav.TabIndex = 26;
+            this.dgvProductsSprav.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductsSprav_RowEnter);
             // 
             // dataGridViewTextBoxColumn5
             // 
@@ -862,7 +905,7 @@
             // 
             // Providers
             // 
-            this.Providers.Controls.Add(this.bunifuCustomDataGrid4);
+            this.Providers.Controls.Add(this.dgvProviders);
             this.transColorBtn.SetDecoration(this.Providers, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
             this.transMenu.SetDecoration(this.Providers, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
             this.transButton.SetDecoration(this.Providers, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
@@ -874,20 +917,20 @@
             this.Providers.Text = "Поставщики";
             this.Providers.UseVisualStyleBackColor = true;
             // 
-            // bunifuCustomDataGrid4
+            // dgvProviders
             // 
-            this.bunifuCustomDataGrid4.AllowUserToAddRows = false;
-            this.bunifuCustomDataGrid4.AllowUserToDeleteRows = false;
-            this.bunifuCustomDataGrid4.AllowUserToResizeRows = false;
+            this.dgvProviders.AllowUserToAddRows = false;
+            this.dgvProviders.AllowUserToDeleteRows = false;
+            this.dgvProviders.AllowUserToResizeRows = false;
             dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(245)))), ((int)(((byte)(214)))));
             dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(225)))), ((int)(((byte)(132)))));
             dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.bunifuCustomDataGrid4.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
-            this.bunifuCustomDataGrid4.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.bunifuCustomDataGrid4.BackgroundColor = System.Drawing.Color.LightGray;
-            this.bunifuCustomDataGrid4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.bunifuCustomDataGrid4.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvProviders.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            this.dgvProviders.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvProviders.BackgroundColor = System.Drawing.Color.LightGray;
+            this.dgvProviders.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvProviders.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(215)))), ((int)(((byte)(96)))));
             dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -895,17 +938,17 @@
             dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.bunifuCustomDataGrid4.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
-            this.bunifuCustomDataGrid4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.bunifuCustomDataGrid4.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvProviders.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            this.dgvProviders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProviders.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn13,
             this.dataGridViewTextBoxColumn14,
             this.dataGridViewTextBoxColumn15,
             this.dataGridViewTextBoxColumn16});
-            this.transButton.SetDecoration(this.bunifuCustomDataGrid4, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
-            this.transColorBtn.SetDecoration(this.bunifuCustomDataGrid4, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
-            this.transMenu.SetDecoration(this.bunifuCustomDataGrid4, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
-            this.transOptions.SetDecoration(this.bunifuCustomDataGrid4, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.transButton.SetDecoration(this.dgvProviders, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.transColorBtn.SetDecoration(this.dgvProviders, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.transMenu.SetDecoration(this.dgvProviders, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.transOptions.SetDecoration(this.dgvProviders, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
             dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(242)))), ((int)(((byte)(203)))));
             dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -913,23 +956,24 @@
             dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(225)))), ((int)(((byte)(132)))));
             dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.bunifuCustomDataGrid4.DefaultCellStyle = dataGridViewCellStyle9;
-            this.bunifuCustomDataGrid4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.bunifuCustomDataGrid4.DoubleBuffered = true;
-            this.bunifuCustomDataGrid4.EnableHeadersVisualStyles = false;
-            this.bunifuCustomDataGrid4.HeaderBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(215)))), ((int)(((byte)(96)))));
-            this.bunifuCustomDataGrid4.HeaderForeColor = System.Drawing.Color.White;
-            this.bunifuCustomDataGrid4.Location = new System.Drawing.Point(0, 0);
-            this.bunifuCustomDataGrid4.Name = "bunifuCustomDataGrid4";
-            this.bunifuCustomDataGrid4.ReadOnly = true;
-            this.bunifuCustomDataGrid4.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.bunifuCustomDataGrid4.RowHeadersVisible = false;
-            this.bunifuCustomDataGrid4.RowHeadersWidth = 70;
-            this.bunifuCustomDataGrid4.RowTemplate.Height = 30;
-            this.bunifuCustomDataGrid4.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.bunifuCustomDataGrid4.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.bunifuCustomDataGrid4.Size = new System.Drawing.Size(826, 180);
-            this.bunifuCustomDataGrid4.TabIndex = 25;
+            this.dgvProviders.DefaultCellStyle = dataGridViewCellStyle9;
+            this.dgvProviders.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvProviders.DoubleBuffered = true;
+            this.dgvProviders.EnableHeadersVisualStyles = false;
+            this.dgvProviders.HeaderBgColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(215)))), ((int)(((byte)(96)))));
+            this.dgvProviders.HeaderForeColor = System.Drawing.Color.White;
+            this.dgvProviders.Location = new System.Drawing.Point(0, 0);
+            this.dgvProviders.Name = "dgvProviders";
+            this.dgvProviders.ReadOnly = true;
+            this.dgvProviders.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvProviders.RowHeadersVisible = false;
+            this.dgvProviders.RowHeadersWidth = 70;
+            this.dgvProviders.RowTemplate.Height = 30;
+            this.dgvProviders.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dgvProviders.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvProviders.Size = new System.Drawing.Size(826, 180);
+            this.dgvProviders.TabIndex = 25;
+            this.dgvProviders.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProviders_RowEnter);
             // 
             // dataGridViewTextBoxColumn13
             // 
@@ -1283,6 +1327,8 @@
             this.pagesOptions.Controls.Add(this.staffEdit);
             this.pagesOptions.Controls.Add(this.productsSpravAdd);
             this.pagesOptions.Controls.Add(this.productsSpravEdit);
+            this.pagesOptions.Controls.Add(this.providersAdd);
+            this.pagesOptions.Controls.Add(this.providersEdit);
             this.transButton.SetDecoration(this.pagesOptions, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
             this.transColorBtn.SetDecoration(this.pagesOptions, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
             this.transMenu.SetDecoration(this.pagesOptions, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
@@ -1291,10 +1337,10 @@
             this.pagesOptions.Location = new System.Drawing.Point(192, 24);
             this.pagesOptions.Multiline = true;
             this.pagesOptions.Name = "pagesOptions";
-            this.pagesOptions.Page = this.productsSpravAdd;
-            this.pagesOptions.PageIndex = 3;
-            this.pagesOptions.PageName = "productsSpravAdd";
-            this.pagesOptions.PageTitle = "Доб товара_справ";
+            this.pagesOptions.Page = this.providersEdit;
+            this.pagesOptions.PageIndex = 6;
+            this.pagesOptions.PageName = "providersEdit";
+            this.pagesOptions.PageTitle = "Ред пост";
             this.pagesOptions.SelectedIndex = 0;
             this.pagesOptions.Size = new System.Drawing.Size(834, 270);
             this.pagesOptions.TabIndex = 26;
@@ -1316,6 +1362,116 @@
             this.pagesOptions.Transition = animation6;
             this.pagesOptions.TransitionType = Utilities.BunifuPages.BunifuAnimatorNS.AnimationType.Custom;
             this.pagesOptions.Visible = false;
+            // 
+            // search
+            // 
+            this.search.BackColor = System.Drawing.Color.Honeydew;
+            this.search.Controls.Add(this.tbSearch);
+            this.search.Controls.Add(this.label3);
+            this.transColorBtn.SetDecoration(this.search, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.transMenu.SetDecoration(this.search, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.transButton.SetDecoration(this.search, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.transOptions.SetDecoration(this.search, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.search.Location = new System.Drawing.Point(4, 4);
+            this.search.Name = "search";
+            this.search.Size = new System.Drawing.Size(826, 244);
+            this.search.TabIndex = 2;
+            this.search.Text = "Поиск";
+            // 
+            // tbSearch
+            // 
+            this.tbSearch.AcceptsReturn = false;
+            this.tbSearch.AcceptsTab = false;
+            this.tbSearch.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbSearch.AnimationSpeed = 200;
+            this.tbSearch.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.tbSearch.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.tbSearch.BackColor = System.Drawing.Color.Transparent;
+            this.tbSearch.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tbSearch.BackgroundImage")));
+            this.tbSearch.BorderColorActive = System.Drawing.Color.DodgerBlue;
+            this.tbSearch.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
+            this.tbSearch.BorderColorHover = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            this.tbSearch.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(144)))), ((int)(((byte)(255)))));
+            this.tbSearch.BorderRadius = 30;
+            this.tbSearch.BorderThickness = 1;
+            this.tbSearch.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.tbSearch.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.transOptions.SetDecoration(this.tbSearch, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.transColorBtn.SetDecoration(this.tbSearch, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.transMenu.SetDecoration(this.tbSearch, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.transButton.SetDecoration(this.tbSearch, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.tbSearch.DefaultFont = new System.Drawing.Font("Segoe UI Semibold", 9.75F);
+            this.tbSearch.DefaultText = "";
+            this.tbSearch.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.tbSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.tbSearch.HideSelection = true;
+            this.tbSearch.IconLeft = null;
+            this.tbSearch.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbSearch.IconPadding = 10;
+            this.tbSearch.IconRight = null;
+            this.tbSearch.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbSearch.Lines = new string[0];
+            this.tbSearch.Location = new System.Drawing.Point(266, 70);
+            this.tbSearch.MaxLength = 32767;
+            this.tbSearch.MinimumSize = new System.Drawing.Size(100, 35);
+            this.tbSearch.Modified = false;
+            this.tbSearch.Multiline = false;
+            this.tbSearch.Name = "tbSearch";
+            stateProperties1.BorderColor = System.Drawing.Color.DodgerBlue;
+            stateProperties1.FillColor = System.Drawing.Color.Empty;
+            stateProperties1.ForeColor = System.Drawing.Color.Empty;
+            stateProperties1.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.tbSearch.OnActiveState = stateProperties1;
+            stateProperties2.BorderColor = System.Drawing.Color.Empty;
+            stateProperties2.FillColor = System.Drawing.Color.White;
+            stateProperties2.ForeColor = System.Drawing.Color.Empty;
+            stateProperties2.PlaceholderForeColor = System.Drawing.Color.Silver;
+            this.tbSearch.OnDisabledState = stateProperties2;
+            stateProperties3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            stateProperties3.FillColor = System.Drawing.Color.Empty;
+            stateProperties3.ForeColor = System.Drawing.Color.Empty;
+            stateProperties3.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.tbSearch.OnHoverState = stateProperties3;
+            stateProperties4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(144)))), ((int)(((byte)(255)))));
+            stateProperties4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            stateProperties4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            stateProperties4.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.tbSearch.OnIdleState = stateProperties4;
+            this.tbSearch.PasswordChar = '\0';
+            this.tbSearch.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
+            this.tbSearch.PlaceholderText = "Поиск по имени/названию";
+            this.tbSearch.ReadOnly = false;
+            this.tbSearch.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.tbSearch.SelectedText = "";
+            this.tbSearch.SelectionLength = 0;
+            this.tbSearch.SelectionStart = 0;
+            this.tbSearch.ShortcutsEnabled = true;
+            this.tbSearch.Size = new System.Drawing.Size(302, 35);
+            this.tbSearch.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Bunifu;
+            this.tbSearch.TabIndex = 26;
+            this.tbSearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.tbSearch.TextMarginBottom = 0;
+            this.tbSearch.TextMarginLeft = 5;
+            this.tbSearch.TextMarginTop = 0;
+            this.tbSearch.TextPlaceholder = "Поиск по имени/названию";
+            this.tbSearch.UseSystemPasswordChar = false;
+            this.tbSearch.WordWrap = true;
+            this.tbSearch.TextChanged += new System.EventHandler(this.tbSearch_TextChanged);
+            // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label3.AutoSize = true;
+            this.transButton.SetDecoration(this.label3, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.transColorBtn.SetDecoration(this.label3, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.transOptions.SetDecoration(this.label3, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.transMenu.SetDecoration(this.label3, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.Location = new System.Drawing.Point(390, 41);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(54, 21);
+            this.label3.TabIndex = 27;
+            this.label3.Text = "Поиск";
             // 
             // staffAdd
             // 
@@ -1811,116 +1967,6 @@
             this.tbUpdNameStaff.UseSystemPasswordChar = false;
             this.tbUpdNameStaff.WordWrap = true;
             // 
-            // search
-            // 
-            this.search.BackColor = System.Drawing.Color.Honeydew;
-            this.search.Controls.Add(this.tbSearch);
-            this.search.Controls.Add(this.label3);
-            this.transColorBtn.SetDecoration(this.search, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
-            this.transMenu.SetDecoration(this.search, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
-            this.transButton.SetDecoration(this.search, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
-            this.transOptions.SetDecoration(this.search, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
-            this.search.Location = new System.Drawing.Point(4, 4);
-            this.search.Name = "search";
-            this.search.Size = new System.Drawing.Size(826, 244);
-            this.search.TabIndex = 2;
-            this.search.Text = "Поиск";
-            // 
-            // tbSearch
-            // 
-            this.tbSearch.AcceptsReturn = false;
-            this.tbSearch.AcceptsTab = false;
-            this.tbSearch.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tbSearch.AnimationSpeed = 200;
-            this.tbSearch.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-            this.tbSearch.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-            this.tbSearch.BackColor = System.Drawing.Color.Transparent;
-            this.tbSearch.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tbSearch.BackgroundImage")));
-            this.tbSearch.BorderColorActive = System.Drawing.Color.DodgerBlue;
-            this.tbSearch.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
-            this.tbSearch.BorderColorHover = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            this.tbSearch.BorderColorIdle = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(144)))), ((int)(((byte)(255)))));
-            this.tbSearch.BorderRadius = 30;
-            this.tbSearch.BorderThickness = 1;
-            this.tbSearch.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.tbSearch.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.transOptions.SetDecoration(this.tbSearch, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
-            this.transColorBtn.SetDecoration(this.tbSearch, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
-            this.transMenu.SetDecoration(this.tbSearch, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
-            this.transButton.SetDecoration(this.tbSearch, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
-            this.tbSearch.DefaultFont = new System.Drawing.Font("Segoe UI Semibold", 9.75F);
-            this.tbSearch.DefaultText = "";
-            this.tbSearch.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.tbSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.tbSearch.HideSelection = true;
-            this.tbSearch.IconLeft = null;
-            this.tbSearch.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbSearch.IconPadding = 10;
-            this.tbSearch.IconRight = null;
-            this.tbSearch.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
-            this.tbSearch.Lines = new string[0];
-            this.tbSearch.Location = new System.Drawing.Point(266, 70);
-            this.tbSearch.MaxLength = 32767;
-            this.tbSearch.MinimumSize = new System.Drawing.Size(100, 35);
-            this.tbSearch.Modified = false;
-            this.tbSearch.Multiline = false;
-            this.tbSearch.Name = "tbSearch";
-            stateProperties1.BorderColor = System.Drawing.Color.DodgerBlue;
-            stateProperties1.FillColor = System.Drawing.Color.Empty;
-            stateProperties1.ForeColor = System.Drawing.Color.Empty;
-            stateProperties1.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.tbSearch.OnActiveState = stateProperties1;
-            stateProperties2.BorderColor = System.Drawing.Color.Empty;
-            stateProperties2.FillColor = System.Drawing.Color.White;
-            stateProperties2.ForeColor = System.Drawing.Color.Empty;
-            stateProperties2.PlaceholderForeColor = System.Drawing.Color.Silver;
-            this.tbSearch.OnDisabledState = stateProperties2;
-            stateProperties3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            stateProperties3.FillColor = System.Drawing.Color.Empty;
-            stateProperties3.ForeColor = System.Drawing.Color.Empty;
-            stateProperties3.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.tbSearch.OnHoverState = stateProperties3;
-            stateProperties4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(144)))), ((int)(((byte)(255)))));
-            stateProperties4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            stateProperties4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            stateProperties4.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.tbSearch.OnIdleState = stateProperties4;
-            this.tbSearch.PasswordChar = '\0';
-            this.tbSearch.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
-            this.tbSearch.PlaceholderText = "Поиск по имени/названию";
-            this.tbSearch.ReadOnly = false;
-            this.tbSearch.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.tbSearch.SelectedText = "";
-            this.tbSearch.SelectionLength = 0;
-            this.tbSearch.SelectionStart = 0;
-            this.tbSearch.ShortcutsEnabled = true;
-            this.tbSearch.Size = new System.Drawing.Size(302, 35);
-            this.tbSearch.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Bunifu;
-            this.tbSearch.TabIndex = 26;
-            this.tbSearch.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.tbSearch.TextMarginBottom = 0;
-            this.tbSearch.TextMarginLeft = 5;
-            this.tbSearch.TextMarginTop = 0;
-            this.tbSearch.TextPlaceholder = "Поиск по имени/названию";
-            this.tbSearch.UseSystemPasswordChar = false;
-            this.tbSearch.WordWrap = true;
-            this.tbSearch.TextChanged += new System.EventHandler(this.tbSearch_TextChanged);
-            // 
-            // label3
-            // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label3.AutoSize = true;
-            this.transButton.SetDecoration(this.label3, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
-            this.transColorBtn.SetDecoration(this.label3, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
-            this.transOptions.SetDecoration(this.label3, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
-            this.transMenu.SetDecoration(this.label3, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(390, 41);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(54, 21);
-            this.label3.TabIndex = 27;
-            this.label3.Text = "Поиск";
-            // 
             // productsSpravAdd
             // 
             this.productsSpravAdd.BackColor = System.Drawing.Color.Honeydew;
@@ -2167,70 +2213,6 @@
             this.tbProdSpravName.UseSystemPasswordChar = false;
             this.tbProdSpravName.WordWrap = true;
             // 
-            // transColorBtn
-            // 
-            this.transColorBtn.AnimationType = Bunifu.UI.WinForms.BunifuAnimatorNS.AnimationType.Transparent;
-            this.transColorBtn.Cursor = null;
-            animation3.AnimateOnlyDifferences = true;
-            animation3.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.BlindCoeff")));
-            animation3.LeafCoeff = 0F;
-            animation3.MaxTime = 1F;
-            animation3.MinTime = 0F;
-            animation3.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.MosaicCoeff")));
-            animation3.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation3.MosaicShift")));
-            animation3.MosaicSize = 0;
-            animation3.Padding = new System.Windows.Forms.Padding(0);
-            animation3.RotateCoeff = 0F;
-            animation3.RotateLimit = 0F;
-            animation3.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.ScaleCoeff")));
-            animation3.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.SlideCoeff")));
-            animation3.TimeCoeff = 0F;
-            animation3.TransparencyCoeff = 1F;
-            this.transColorBtn.DefaultAnimation = animation3;
-            this.transColorBtn.TimeStep = 0.03F;
-            // 
-            // transButton
-            // 
-            this.transButton.AnimationType = Bunifu.UI.WinForms.BunifuAnimatorNS.AnimationType.VertSlide;
-            this.transButton.Cursor = null;
-            animation4.AnimateOnlyDifferences = true;
-            animation4.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.BlindCoeff")));
-            animation4.LeafCoeff = 0F;
-            animation4.MaxTime = 1F;
-            animation4.MinTime = 0F;
-            animation4.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.MosaicCoeff")));
-            animation4.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation4.MosaicShift")));
-            animation4.MosaicSize = 0;
-            animation4.Padding = new System.Windows.Forms.Padding(0);
-            animation4.RotateCoeff = 0F;
-            animation4.RotateLimit = 0F;
-            animation4.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.ScaleCoeff")));
-            animation4.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.SlideCoeff")));
-            animation4.TimeCoeff = 0F;
-            animation4.TransparencyCoeff = 0F;
-            this.transButton.DefaultAnimation = animation4;
-            // 
-            // transOptions
-            // 
-            this.transOptions.AnimationType = Bunifu.UI.WinForms.BunifuAnimatorNS.AnimationType.VertSlide;
-            this.transOptions.Cursor = null;
-            animation1.AnimateOnlyDifferences = true;
-            animation1.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.BlindCoeff")));
-            animation1.LeafCoeff = 0F;
-            animation1.MaxTime = 1F;
-            animation1.MinTime = 0F;
-            animation1.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicCoeff")));
-            animation1.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicShift")));
-            animation1.MosaicSize = 0;
-            animation1.Padding = new System.Windows.Forms.Padding(0);
-            animation1.RotateCoeff = 0F;
-            animation1.RotateLimit = 0F;
-            animation1.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.ScaleCoeff")));
-            animation1.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.SlideCoeff")));
-            animation1.TimeCoeff = 0F;
-            animation1.TransparencyCoeff = 0F;
-            this.transOptions.DefaultAnimation = animation1;
-            // 
             // productsSpravEdit
             // 
             this.productsSpravEdit.BackColor = System.Drawing.Color.Honeydew;
@@ -2319,6 +2301,7 @@
             this.btnProdSpravEdit.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnProdSpravEdit.Textcolor = System.Drawing.Color.White;
             this.btnProdSpravEdit.TextFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnProdSpravEdit.Click += new System.EventHandler(this.btnProdSpravEdit_Click);
             // 
             // tbUpdUnitProdSprav
             // 
@@ -2476,6 +2459,720 @@
             this.tbUpdNameProdSprav.UseSystemPasswordChar = false;
             this.tbUpdNameProdSprav.WordWrap = true;
             // 
+            // providersAdd
+            // 
+            this.providersAdd.BackColor = System.Drawing.Color.Honeydew;
+            this.providersAdd.Controls.Add(this.label6);
+            this.providersAdd.Controls.Add(this.bunifuShadowPanel5);
+            this.transColorBtn.SetDecoration(this.providersAdd, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.transMenu.SetDecoration(this.providersAdd, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.transButton.SetDecoration(this.providersAdd, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.transOptions.SetDecoration(this.providersAdd, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.providersAdd.Location = new System.Drawing.Point(4, 4);
+            this.providersAdd.Name = "providersAdd";
+            this.providersAdd.Size = new System.Drawing.Size(826, 244);
+            this.providersAdd.TabIndex = 5;
+            this.providersAdd.Text = "Доб пост";
+            // 
+            // label6
+            // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label6.AutoSize = true;
+            this.transButton.SetDecoration(this.label6, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.transColorBtn.SetDecoration(this.label6, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.transOptions.SetDecoration(this.label6, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.transMenu.SetDecoration(this.label6, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label6.Location = new System.Drawing.Point(322, -8);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(191, 21);
+            this.label6.TabIndex = 29;
+            this.label6.Text = "Добавление  поставщика";
+            // 
+            // bunifuShadowPanel5
+            // 
+            this.bunifuShadowPanel5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.bunifuShadowPanel5.BorderColor = System.Drawing.Color.Gainsboro;
+            this.bunifuShadowPanel5.Controls.Add(this.tbProviderAddress);
+            this.bunifuShadowPanel5.Controls.Add(this.btnProviderAdd);
+            this.bunifuShadowPanel5.Controls.Add(this.tbProviderPhone);
+            this.bunifuShadowPanel5.Controls.Add(this.tbProviderName);
+            this.transOptions.SetDecoration(this.bunifuShadowPanel5, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.transMenu.SetDecoration(this.bunifuShadowPanel5, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.transColorBtn.SetDecoration(this.bunifuShadowPanel5, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.transButton.SetDecoration(this.bunifuShadowPanel5, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.bunifuShadowPanel5.Location = new System.Drawing.Point(250, 18);
+            this.bunifuShadowPanel5.Name = "bunifuShadowPanel5";
+            this.bunifuShadowPanel5.PanelColor = System.Drawing.Color.Empty;
+            this.bunifuShadowPanel5.ShadowDept = 2;
+            this.bunifuShadowPanel5.ShadowTopLeftVisible = false;
+            this.bunifuShadowPanel5.Size = new System.Drawing.Size(334, 234);
+            this.bunifuShadowPanel5.TabIndex = 28;
+            // 
+            // tbProviderAddress
+            // 
+            this.tbProviderAddress.AcceptsReturn = false;
+            this.tbProviderAddress.AcceptsTab = false;
+            this.tbProviderAddress.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbProviderAddress.AnimationSpeed = 200;
+            this.tbProviderAddress.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.tbProviderAddress.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.tbProviderAddress.BackColor = System.Drawing.Color.Transparent;
+            this.tbProviderAddress.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tbProviderAddress.BackgroundImage")));
+            this.tbProviderAddress.BorderColorActive = System.Drawing.Color.DodgerBlue;
+            this.tbProviderAddress.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
+            this.tbProviderAddress.BorderColorHover = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            this.tbProviderAddress.BorderColorIdle = System.Drawing.Color.Silver;
+            this.tbProviderAddress.BorderRadius = 30;
+            this.tbProviderAddress.BorderThickness = 1;
+            this.tbProviderAddress.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.tbProviderAddress.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.transOptions.SetDecoration(this.tbProviderAddress, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.transColorBtn.SetDecoration(this.tbProviderAddress, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.transMenu.SetDecoration(this.tbProviderAddress, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.transButton.SetDecoration(this.tbProviderAddress, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.tbProviderAddress.DefaultFont = new System.Drawing.Font("Segoe UI Semibold", 9.75F);
+            this.tbProviderAddress.DefaultText = "";
+            this.tbProviderAddress.FillColor = System.Drawing.Color.White;
+            this.tbProviderAddress.HideSelection = true;
+            this.tbProviderAddress.IconLeft = null;
+            this.tbProviderAddress.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbProviderAddress.IconPadding = 10;
+            this.tbProviderAddress.IconRight = null;
+            this.tbProviderAddress.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbProviderAddress.Lines = new string[0];
+            this.tbProviderAddress.Location = new System.Drawing.Point(14, 126);
+            this.tbProviderAddress.MaxLength = 32767;
+            this.tbProviderAddress.MinimumSize = new System.Drawing.Size(100, 35);
+            this.tbProviderAddress.Modified = false;
+            this.tbProviderAddress.Multiline = false;
+            this.tbProviderAddress.Name = "tbProviderAddress";
+            stateProperties37.BorderColor = System.Drawing.Color.DodgerBlue;
+            stateProperties37.FillColor = System.Drawing.Color.Empty;
+            stateProperties37.ForeColor = System.Drawing.Color.Empty;
+            stateProperties37.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.tbProviderAddress.OnActiveState = stateProperties37;
+            stateProperties38.BorderColor = System.Drawing.Color.Empty;
+            stateProperties38.FillColor = System.Drawing.Color.White;
+            stateProperties38.ForeColor = System.Drawing.Color.Empty;
+            stateProperties38.PlaceholderForeColor = System.Drawing.Color.Silver;
+            this.tbProviderAddress.OnDisabledState = stateProperties38;
+            stateProperties39.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            stateProperties39.FillColor = System.Drawing.Color.Empty;
+            stateProperties39.ForeColor = System.Drawing.Color.Empty;
+            stateProperties39.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.tbProviderAddress.OnHoverState = stateProperties39;
+            stateProperties40.BorderColor = System.Drawing.Color.Silver;
+            stateProperties40.FillColor = System.Drawing.Color.White;
+            stateProperties40.ForeColor = System.Drawing.Color.Empty;
+            stateProperties40.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.tbProviderAddress.OnIdleState = stateProperties40;
+            this.tbProviderAddress.PasswordChar = '\0';
+            this.tbProviderAddress.PlaceholderForeColor = System.Drawing.Color.DimGray;
+            this.tbProviderAddress.PlaceholderText = "Адрес";
+            this.tbProviderAddress.ReadOnly = false;
+            this.tbProviderAddress.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.tbProviderAddress.SelectedText = "";
+            this.tbProviderAddress.SelectionLength = 0;
+            this.tbProviderAddress.SelectionStart = 0;
+            this.tbProviderAddress.ShortcutsEnabled = true;
+            this.tbProviderAddress.Size = new System.Drawing.Size(302, 35);
+            this.tbProviderAddress.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Bunifu;
+            this.tbProviderAddress.TabIndex = 4;
+            this.tbProviderAddress.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.tbProviderAddress.TextMarginBottom = 0;
+            this.tbProviderAddress.TextMarginLeft = 5;
+            this.tbProviderAddress.TextMarginTop = 0;
+            this.tbProviderAddress.TextPlaceholder = "Адрес";
+            this.tbProviderAddress.UseSystemPasswordChar = false;
+            this.tbProviderAddress.WordWrap = true;
+            // 
+            // btnProviderAdd
+            // 
+            this.btnProviderAdd.Active = true;
+            this.btnProviderAdd.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.btnProviderAdd.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnProviderAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.btnProviderAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnProviderAdd.BorderRadius = 0;
+            this.btnProviderAdd.ButtonText = "Добавить";
+            this.btnProviderAdd.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.transOptions.SetDecoration(this.btnProviderAdd, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.transColorBtn.SetDecoration(this.btnProviderAdd, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.transMenu.SetDecoration(this.btnProviderAdd, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.transButton.SetDecoration(this.btnProviderAdd, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.btnProviderAdd.DisabledColor = System.Drawing.Color.Gray;
+            this.btnProviderAdd.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnProviderAdd.Iconimage = null;
+            this.btnProviderAdd.Iconimage_right = null;
+            this.btnProviderAdd.Iconimage_right_Selected = null;
+            this.btnProviderAdd.Iconimage_Selected = null;
+            this.btnProviderAdd.IconMarginLeft = 20;
+            this.btnProviderAdd.IconMarginRight = 0;
+            this.btnProviderAdd.IconRightVisible = false;
+            this.btnProviderAdd.IconRightZoom = 0D;
+            this.btnProviderAdd.IconVisible = false;
+            this.btnProviderAdd.IconZoom = 60D;
+            this.btnProviderAdd.IsTab = false;
+            this.btnProviderAdd.Location = new System.Drawing.Point(14, 175);
+            this.btnProviderAdd.Name = "btnProviderAdd";
+            this.btnProviderAdd.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.btnProviderAdd.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.btnProviderAdd.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnProviderAdd.selected = true;
+            this.btnProviderAdd.Size = new System.Drawing.Size(302, 41);
+            this.btnProviderAdd.TabIndex = 3;
+            this.btnProviderAdd.Text = "Добавить";
+            this.btnProviderAdd.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnProviderAdd.Textcolor = System.Drawing.Color.White;
+            this.btnProviderAdd.TextFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnProviderAdd.Click += new System.EventHandler(this.btnProviderAdd_Click);
+            // 
+            // tbProviderPhone
+            // 
+            this.tbProviderPhone.AcceptsReturn = false;
+            this.tbProviderPhone.AcceptsTab = false;
+            this.tbProviderPhone.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbProviderPhone.AnimationSpeed = 200;
+            this.tbProviderPhone.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.tbProviderPhone.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.tbProviderPhone.BackColor = System.Drawing.Color.Transparent;
+            this.tbProviderPhone.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tbProviderPhone.BackgroundImage")));
+            this.tbProviderPhone.BorderColorActive = System.Drawing.Color.DodgerBlue;
+            this.tbProviderPhone.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
+            this.tbProviderPhone.BorderColorHover = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            this.tbProviderPhone.BorderColorIdle = System.Drawing.Color.Silver;
+            this.tbProviderPhone.BorderRadius = 30;
+            this.tbProviderPhone.BorderThickness = 1;
+            this.tbProviderPhone.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.tbProviderPhone.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.transOptions.SetDecoration(this.tbProviderPhone, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.transColorBtn.SetDecoration(this.tbProviderPhone, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.transMenu.SetDecoration(this.tbProviderPhone, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.transButton.SetDecoration(this.tbProviderPhone, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.tbProviderPhone.DefaultFont = new System.Drawing.Font("Segoe UI Semibold", 9.75F);
+            this.tbProviderPhone.DefaultText = "";
+            this.tbProviderPhone.FillColor = System.Drawing.Color.White;
+            this.tbProviderPhone.HideSelection = true;
+            this.tbProviderPhone.IconLeft = null;
+            this.tbProviderPhone.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbProviderPhone.IconPadding = 10;
+            this.tbProviderPhone.IconRight = null;
+            this.tbProviderPhone.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbProviderPhone.Lines = new string[0];
+            this.tbProviderPhone.Location = new System.Drawing.Point(14, 73);
+            this.tbProviderPhone.MaxLength = 32767;
+            this.tbProviderPhone.MinimumSize = new System.Drawing.Size(100, 35);
+            this.tbProviderPhone.Modified = false;
+            this.tbProviderPhone.Multiline = false;
+            this.tbProviderPhone.Name = "tbProviderPhone";
+            stateProperties41.BorderColor = System.Drawing.Color.DodgerBlue;
+            stateProperties41.FillColor = System.Drawing.Color.Empty;
+            stateProperties41.ForeColor = System.Drawing.Color.Empty;
+            stateProperties41.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.tbProviderPhone.OnActiveState = stateProperties41;
+            stateProperties42.BorderColor = System.Drawing.Color.Empty;
+            stateProperties42.FillColor = System.Drawing.Color.White;
+            stateProperties42.ForeColor = System.Drawing.Color.Empty;
+            stateProperties42.PlaceholderForeColor = System.Drawing.Color.Silver;
+            this.tbProviderPhone.OnDisabledState = stateProperties42;
+            stateProperties43.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            stateProperties43.FillColor = System.Drawing.Color.Empty;
+            stateProperties43.ForeColor = System.Drawing.Color.Empty;
+            stateProperties43.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.tbProviderPhone.OnHoverState = stateProperties43;
+            stateProperties44.BorderColor = System.Drawing.Color.Silver;
+            stateProperties44.FillColor = System.Drawing.Color.White;
+            stateProperties44.ForeColor = System.Drawing.Color.Empty;
+            stateProperties44.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.tbProviderPhone.OnIdleState = stateProperties44;
+            this.tbProviderPhone.PasswordChar = '\0';
+            this.tbProviderPhone.PlaceholderForeColor = System.Drawing.Color.DimGray;
+            this.tbProviderPhone.PlaceholderText = "Телефон";
+            this.tbProviderPhone.ReadOnly = false;
+            this.tbProviderPhone.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.tbProviderPhone.SelectedText = "";
+            this.tbProviderPhone.SelectionLength = 0;
+            this.tbProviderPhone.SelectionStart = 0;
+            this.tbProviderPhone.ShortcutsEnabled = true;
+            this.tbProviderPhone.Size = new System.Drawing.Size(302, 35);
+            this.tbProviderPhone.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Bunifu;
+            this.tbProviderPhone.TabIndex = 1;
+            this.tbProviderPhone.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.tbProviderPhone.TextMarginBottom = 0;
+            this.tbProviderPhone.TextMarginLeft = 5;
+            this.tbProviderPhone.TextMarginTop = 0;
+            this.tbProviderPhone.TextPlaceholder = "Телефон";
+            this.tbProviderPhone.UseSystemPasswordChar = false;
+            this.tbProviderPhone.WordWrap = true;
+            // 
+            // tbProviderName
+            // 
+            this.tbProviderName.AcceptsReturn = false;
+            this.tbProviderName.AcceptsTab = false;
+            this.tbProviderName.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbProviderName.AnimationSpeed = 200;
+            this.tbProviderName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.tbProviderName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.tbProviderName.BackColor = System.Drawing.Color.Transparent;
+            this.tbProviderName.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tbProviderName.BackgroundImage")));
+            this.tbProviderName.BorderColorActive = System.Drawing.Color.DodgerBlue;
+            this.tbProviderName.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
+            this.tbProviderName.BorderColorHover = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            this.tbProviderName.BorderColorIdle = System.Drawing.Color.Silver;
+            this.tbProviderName.BorderRadius = 30;
+            this.tbProviderName.BorderThickness = 1;
+            this.tbProviderName.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.tbProviderName.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.transOptions.SetDecoration(this.tbProviderName, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.transColorBtn.SetDecoration(this.tbProviderName, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.transMenu.SetDecoration(this.tbProviderName, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.transButton.SetDecoration(this.tbProviderName, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.tbProviderName.DefaultFont = new System.Drawing.Font("Segoe UI Semibold", 9.75F);
+            this.tbProviderName.DefaultText = "";
+            this.tbProviderName.FillColor = System.Drawing.Color.White;
+            this.tbProviderName.HideSelection = true;
+            this.tbProviderName.IconLeft = null;
+            this.tbProviderName.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbProviderName.IconPadding = 10;
+            this.tbProviderName.IconRight = null;
+            this.tbProviderName.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbProviderName.Lines = new string[0];
+            this.tbProviderName.Location = new System.Drawing.Point(14, 20);
+            this.tbProviderName.MaxLength = 32767;
+            this.tbProviderName.MinimumSize = new System.Drawing.Size(100, 35);
+            this.tbProviderName.Modified = false;
+            this.tbProviderName.Multiline = false;
+            this.tbProviderName.Name = "tbProviderName";
+            stateProperties45.BorderColor = System.Drawing.Color.DodgerBlue;
+            stateProperties45.FillColor = System.Drawing.Color.Empty;
+            stateProperties45.ForeColor = System.Drawing.Color.Empty;
+            stateProperties45.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.tbProviderName.OnActiveState = stateProperties45;
+            stateProperties46.BorderColor = System.Drawing.Color.Empty;
+            stateProperties46.FillColor = System.Drawing.Color.White;
+            stateProperties46.ForeColor = System.Drawing.Color.Empty;
+            stateProperties46.PlaceholderForeColor = System.Drawing.Color.Silver;
+            this.tbProviderName.OnDisabledState = stateProperties46;
+            stateProperties47.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            stateProperties47.FillColor = System.Drawing.Color.Empty;
+            stateProperties47.ForeColor = System.Drawing.Color.Empty;
+            stateProperties47.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.tbProviderName.OnHoverState = stateProperties47;
+            stateProperties48.BorderColor = System.Drawing.Color.Silver;
+            stateProperties48.FillColor = System.Drawing.Color.White;
+            stateProperties48.ForeColor = System.Drawing.Color.Empty;
+            stateProperties48.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.tbProviderName.OnIdleState = stateProperties48;
+            this.tbProviderName.PasswordChar = '\0';
+            this.tbProviderName.PlaceholderForeColor = System.Drawing.Color.DimGray;
+            this.tbProviderName.PlaceholderText = "Название";
+            this.tbProviderName.ReadOnly = false;
+            this.tbProviderName.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.tbProviderName.SelectedText = "";
+            this.tbProviderName.SelectionLength = 0;
+            this.tbProviderName.SelectionStart = 0;
+            this.tbProviderName.ShortcutsEnabled = true;
+            this.tbProviderName.Size = new System.Drawing.Size(302, 35);
+            this.tbProviderName.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Bunifu;
+            this.tbProviderName.TabIndex = 0;
+            this.tbProviderName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.tbProviderName.TextMarginBottom = 0;
+            this.tbProviderName.TextMarginLeft = 5;
+            this.tbProviderName.TextMarginTop = 0;
+            this.tbProviderName.TextPlaceholder = "Название";
+            this.tbProviderName.UseSystemPasswordChar = false;
+            this.tbProviderName.WordWrap = true;
+            // 
+            // providersEdit
+            // 
+            this.providersEdit.BackColor = System.Drawing.Color.Honeydew;
+            this.providersEdit.Controls.Add(this.label7);
+            this.providersEdit.Controls.Add(this.bunifuShadowPanel6);
+            this.transColorBtn.SetDecoration(this.providersEdit, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.transMenu.SetDecoration(this.providersEdit, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.transButton.SetDecoration(this.providersEdit, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.transOptions.SetDecoration(this.providersEdit, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.providersEdit.Location = new System.Drawing.Point(4, 4);
+            this.providersEdit.Name = "providersEdit";
+            this.providersEdit.Size = new System.Drawing.Size(826, 244);
+            this.providersEdit.TabIndex = 6;
+            this.providersEdit.Text = "Ред пост";
+            // 
+            // label7
+            // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label7.AutoSize = true;
+            this.transButton.SetDecoration(this.label7, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.transColorBtn.SetDecoration(this.label7, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.transOptions.SetDecoration(this.label7, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.transMenu.SetDecoration(this.label7, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label7.Location = new System.Drawing.Point(306, -8);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(222, 21);
+            this.label7.TabIndex = 31;
+            this.label7.Text = "Редактирование  поставщика";
+            // 
+            // bunifuShadowPanel6
+            // 
+            this.bunifuShadowPanel6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.bunifuShadowPanel6.BorderColor = System.Drawing.Color.Gainsboro;
+            this.bunifuShadowPanel6.Controls.Add(this.tbUpdProviderAddress);
+            this.bunifuShadowPanel6.Controls.Add(this.btnProvidersUpd);
+            this.bunifuShadowPanel6.Controls.Add(this.tbUpdProviderPhone);
+            this.bunifuShadowPanel6.Controls.Add(this.tbUpdProviderName);
+            this.transOptions.SetDecoration(this.bunifuShadowPanel6, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.transMenu.SetDecoration(this.bunifuShadowPanel6, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.transColorBtn.SetDecoration(this.bunifuShadowPanel6, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.transButton.SetDecoration(this.bunifuShadowPanel6, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.bunifuShadowPanel6.Location = new System.Drawing.Point(250, 18);
+            this.bunifuShadowPanel6.Name = "bunifuShadowPanel6";
+            this.bunifuShadowPanel6.PanelColor = System.Drawing.Color.Empty;
+            this.bunifuShadowPanel6.ShadowDept = 2;
+            this.bunifuShadowPanel6.ShadowTopLeftVisible = false;
+            this.bunifuShadowPanel6.Size = new System.Drawing.Size(334, 234);
+            this.bunifuShadowPanel6.TabIndex = 30;
+            // 
+            // tbUpdProviderAddress
+            // 
+            this.tbUpdProviderAddress.AcceptsReturn = false;
+            this.tbUpdProviderAddress.AcceptsTab = false;
+            this.tbUpdProviderAddress.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbUpdProviderAddress.AnimationSpeed = 200;
+            this.tbUpdProviderAddress.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.tbUpdProviderAddress.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.tbUpdProviderAddress.BackColor = System.Drawing.Color.Transparent;
+            this.tbUpdProviderAddress.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tbUpdProviderAddress.BackgroundImage")));
+            this.tbUpdProviderAddress.BorderColorActive = System.Drawing.Color.DodgerBlue;
+            this.tbUpdProviderAddress.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
+            this.tbUpdProviderAddress.BorderColorHover = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            this.tbUpdProviderAddress.BorderColorIdle = System.Drawing.Color.Silver;
+            this.tbUpdProviderAddress.BorderRadius = 30;
+            this.tbUpdProviderAddress.BorderThickness = 1;
+            this.tbUpdProviderAddress.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.tbUpdProviderAddress.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.transOptions.SetDecoration(this.tbUpdProviderAddress, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.transColorBtn.SetDecoration(this.tbUpdProviderAddress, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.transMenu.SetDecoration(this.tbUpdProviderAddress, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.transButton.SetDecoration(this.tbUpdProviderAddress, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.tbUpdProviderAddress.DefaultFont = new System.Drawing.Font("Segoe UI Semibold", 9.75F);
+            this.tbUpdProviderAddress.DefaultText = "";
+            this.tbUpdProviderAddress.FillColor = System.Drawing.Color.White;
+            this.tbUpdProviderAddress.HideSelection = true;
+            this.tbUpdProviderAddress.IconLeft = null;
+            this.tbUpdProviderAddress.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbUpdProviderAddress.IconPadding = 10;
+            this.tbUpdProviderAddress.IconRight = null;
+            this.tbUpdProviderAddress.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbUpdProviderAddress.Lines = new string[0];
+            this.tbUpdProviderAddress.Location = new System.Drawing.Point(14, 126);
+            this.tbUpdProviderAddress.MaxLength = 32767;
+            this.tbUpdProviderAddress.MinimumSize = new System.Drawing.Size(100, 35);
+            this.tbUpdProviderAddress.Modified = false;
+            this.tbUpdProviderAddress.Multiline = false;
+            this.tbUpdProviderAddress.Name = "tbUpdProviderAddress";
+            stateProperties49.BorderColor = System.Drawing.Color.DodgerBlue;
+            stateProperties49.FillColor = System.Drawing.Color.Empty;
+            stateProperties49.ForeColor = System.Drawing.Color.Empty;
+            stateProperties49.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.tbUpdProviderAddress.OnActiveState = stateProperties49;
+            stateProperties50.BorderColor = System.Drawing.Color.Empty;
+            stateProperties50.FillColor = System.Drawing.Color.White;
+            stateProperties50.ForeColor = System.Drawing.Color.Empty;
+            stateProperties50.PlaceholderForeColor = System.Drawing.Color.Silver;
+            this.tbUpdProviderAddress.OnDisabledState = stateProperties50;
+            stateProperties51.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            stateProperties51.FillColor = System.Drawing.Color.Empty;
+            stateProperties51.ForeColor = System.Drawing.Color.Empty;
+            stateProperties51.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.tbUpdProviderAddress.OnHoverState = stateProperties51;
+            stateProperties52.BorderColor = System.Drawing.Color.Silver;
+            stateProperties52.FillColor = System.Drawing.Color.White;
+            stateProperties52.ForeColor = System.Drawing.Color.Empty;
+            stateProperties52.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.tbUpdProviderAddress.OnIdleState = stateProperties52;
+            this.tbUpdProviderAddress.PasswordChar = '\0';
+            this.tbUpdProviderAddress.PlaceholderForeColor = System.Drawing.Color.DimGray;
+            this.tbUpdProviderAddress.PlaceholderText = "Адрес";
+            this.tbUpdProviderAddress.ReadOnly = false;
+            this.tbUpdProviderAddress.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.tbUpdProviderAddress.SelectedText = "";
+            this.tbUpdProviderAddress.SelectionLength = 0;
+            this.tbUpdProviderAddress.SelectionStart = 0;
+            this.tbUpdProviderAddress.ShortcutsEnabled = true;
+            this.tbUpdProviderAddress.Size = new System.Drawing.Size(302, 35);
+            this.tbUpdProviderAddress.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Bunifu;
+            this.tbUpdProviderAddress.TabIndex = 4;
+            this.tbUpdProviderAddress.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.tbUpdProviderAddress.TextMarginBottom = 0;
+            this.tbUpdProviderAddress.TextMarginLeft = 5;
+            this.tbUpdProviderAddress.TextMarginTop = 0;
+            this.tbUpdProviderAddress.TextPlaceholder = "Адрес";
+            this.tbUpdProviderAddress.UseSystemPasswordChar = false;
+            this.tbUpdProviderAddress.WordWrap = true;
+            // 
+            // btnProvidersUpd
+            // 
+            this.btnProvidersUpd.Active = true;
+            this.btnProvidersUpd.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.btnProvidersUpd.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnProvidersUpd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.btnProvidersUpd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnProvidersUpd.BorderRadius = 0;
+            this.btnProvidersUpd.ButtonText = "Редактировать";
+            this.btnProvidersUpd.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.transOptions.SetDecoration(this.btnProvidersUpd, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.transColorBtn.SetDecoration(this.btnProvidersUpd, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.transMenu.SetDecoration(this.btnProvidersUpd, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.transButton.SetDecoration(this.btnProvidersUpd, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.btnProvidersUpd.DisabledColor = System.Drawing.Color.Gray;
+            this.btnProvidersUpd.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnProvidersUpd.Iconimage = null;
+            this.btnProvidersUpd.Iconimage_right = null;
+            this.btnProvidersUpd.Iconimage_right_Selected = null;
+            this.btnProvidersUpd.Iconimage_Selected = null;
+            this.btnProvidersUpd.IconMarginLeft = 20;
+            this.btnProvidersUpd.IconMarginRight = 0;
+            this.btnProvidersUpd.IconRightVisible = false;
+            this.btnProvidersUpd.IconRightZoom = 0D;
+            this.btnProvidersUpd.IconVisible = false;
+            this.btnProvidersUpd.IconZoom = 60D;
+            this.btnProvidersUpd.IsTab = false;
+            this.btnProvidersUpd.Location = new System.Drawing.Point(14, 175);
+            this.btnProvidersUpd.Name = "btnProvidersUpd";
+            this.btnProvidersUpd.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.btnProvidersUpd.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.btnProvidersUpd.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnProvidersUpd.selected = true;
+            this.btnProvidersUpd.Size = new System.Drawing.Size(302, 41);
+            this.btnProvidersUpd.TabIndex = 3;
+            this.btnProvidersUpd.Text = "Редактировать";
+            this.btnProvidersUpd.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnProvidersUpd.Textcolor = System.Drawing.Color.White;
+            this.btnProvidersUpd.TextFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnProvidersUpd.Click += new System.EventHandler(this.btnProvidersUpd_Click);
+            // 
+            // tbUpdProviderPhone
+            // 
+            this.tbUpdProviderPhone.AcceptsReturn = false;
+            this.tbUpdProviderPhone.AcceptsTab = false;
+            this.tbUpdProviderPhone.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbUpdProviderPhone.AnimationSpeed = 200;
+            this.tbUpdProviderPhone.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.tbUpdProviderPhone.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.tbUpdProviderPhone.BackColor = System.Drawing.Color.Transparent;
+            this.tbUpdProviderPhone.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tbUpdProviderPhone.BackgroundImage")));
+            this.tbUpdProviderPhone.BorderColorActive = System.Drawing.Color.DodgerBlue;
+            this.tbUpdProviderPhone.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
+            this.tbUpdProviderPhone.BorderColorHover = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            this.tbUpdProviderPhone.BorderColorIdle = System.Drawing.Color.Silver;
+            this.tbUpdProviderPhone.BorderRadius = 30;
+            this.tbUpdProviderPhone.BorderThickness = 1;
+            this.tbUpdProviderPhone.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.tbUpdProviderPhone.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.transOptions.SetDecoration(this.tbUpdProviderPhone, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.transColorBtn.SetDecoration(this.tbUpdProviderPhone, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.transMenu.SetDecoration(this.tbUpdProviderPhone, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.transButton.SetDecoration(this.tbUpdProviderPhone, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.tbUpdProviderPhone.DefaultFont = new System.Drawing.Font("Segoe UI Semibold", 9.75F);
+            this.tbUpdProviderPhone.DefaultText = "";
+            this.tbUpdProviderPhone.FillColor = System.Drawing.Color.White;
+            this.tbUpdProviderPhone.HideSelection = true;
+            this.tbUpdProviderPhone.IconLeft = null;
+            this.tbUpdProviderPhone.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbUpdProviderPhone.IconPadding = 10;
+            this.tbUpdProviderPhone.IconRight = null;
+            this.tbUpdProviderPhone.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbUpdProviderPhone.Lines = new string[0];
+            this.tbUpdProviderPhone.Location = new System.Drawing.Point(14, 73);
+            this.tbUpdProviderPhone.MaxLength = 32767;
+            this.tbUpdProviderPhone.MinimumSize = new System.Drawing.Size(100, 35);
+            this.tbUpdProviderPhone.Modified = false;
+            this.tbUpdProviderPhone.Multiline = false;
+            this.tbUpdProviderPhone.Name = "tbUpdProviderPhone";
+            stateProperties53.BorderColor = System.Drawing.Color.DodgerBlue;
+            stateProperties53.FillColor = System.Drawing.Color.Empty;
+            stateProperties53.ForeColor = System.Drawing.Color.Empty;
+            stateProperties53.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.tbUpdProviderPhone.OnActiveState = stateProperties53;
+            stateProperties54.BorderColor = System.Drawing.Color.Empty;
+            stateProperties54.FillColor = System.Drawing.Color.White;
+            stateProperties54.ForeColor = System.Drawing.Color.Empty;
+            stateProperties54.PlaceholderForeColor = System.Drawing.Color.Silver;
+            this.tbUpdProviderPhone.OnDisabledState = stateProperties54;
+            stateProperties55.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            stateProperties55.FillColor = System.Drawing.Color.Empty;
+            stateProperties55.ForeColor = System.Drawing.Color.Empty;
+            stateProperties55.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.tbUpdProviderPhone.OnHoverState = stateProperties55;
+            stateProperties56.BorderColor = System.Drawing.Color.Silver;
+            stateProperties56.FillColor = System.Drawing.Color.White;
+            stateProperties56.ForeColor = System.Drawing.Color.Empty;
+            stateProperties56.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.tbUpdProviderPhone.OnIdleState = stateProperties56;
+            this.tbUpdProviderPhone.PasswordChar = '\0';
+            this.tbUpdProviderPhone.PlaceholderForeColor = System.Drawing.Color.DimGray;
+            this.tbUpdProviderPhone.PlaceholderText = "Телефон";
+            this.tbUpdProviderPhone.ReadOnly = false;
+            this.tbUpdProviderPhone.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.tbUpdProviderPhone.SelectedText = "";
+            this.tbUpdProviderPhone.SelectionLength = 0;
+            this.tbUpdProviderPhone.SelectionStart = 0;
+            this.tbUpdProviderPhone.ShortcutsEnabled = true;
+            this.tbUpdProviderPhone.Size = new System.Drawing.Size(302, 35);
+            this.tbUpdProviderPhone.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Bunifu;
+            this.tbUpdProviderPhone.TabIndex = 1;
+            this.tbUpdProviderPhone.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.tbUpdProviderPhone.TextMarginBottom = 0;
+            this.tbUpdProviderPhone.TextMarginLeft = 5;
+            this.tbUpdProviderPhone.TextMarginTop = 0;
+            this.tbUpdProviderPhone.TextPlaceholder = "Телефон";
+            this.tbUpdProviderPhone.UseSystemPasswordChar = false;
+            this.tbUpdProviderPhone.WordWrap = true;
+            // 
+            // tbUpdProviderName
+            // 
+            this.tbUpdProviderName.AcceptsReturn = false;
+            this.tbUpdProviderName.AcceptsTab = false;
+            this.tbUpdProviderName.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbUpdProviderName.AnimationSpeed = 200;
+            this.tbUpdProviderName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.tbUpdProviderName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.tbUpdProviderName.BackColor = System.Drawing.Color.Transparent;
+            this.tbUpdProviderName.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tbUpdProviderName.BackgroundImage")));
+            this.tbUpdProviderName.BorderColorActive = System.Drawing.Color.DodgerBlue;
+            this.tbUpdProviderName.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
+            this.tbUpdProviderName.BorderColorHover = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            this.tbUpdProviderName.BorderColorIdle = System.Drawing.Color.Silver;
+            this.tbUpdProviderName.BorderRadius = 30;
+            this.tbUpdProviderName.BorderThickness = 1;
+            this.tbUpdProviderName.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.tbUpdProviderName.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.transOptions.SetDecoration(this.tbUpdProviderName, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.transColorBtn.SetDecoration(this.tbUpdProviderName, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.transMenu.SetDecoration(this.tbUpdProviderName, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.transButton.SetDecoration(this.tbUpdProviderName, Bunifu.UI.WinForms.BunifuTransition.DecorationType.None);
+            this.tbUpdProviderName.DefaultFont = new System.Drawing.Font("Segoe UI Semibold", 9.75F);
+            this.tbUpdProviderName.DefaultText = "";
+            this.tbUpdProviderName.FillColor = System.Drawing.Color.White;
+            this.tbUpdProviderName.HideSelection = true;
+            this.tbUpdProviderName.IconLeft = null;
+            this.tbUpdProviderName.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbUpdProviderName.IconPadding = 10;
+            this.tbUpdProviderName.IconRight = null;
+            this.tbUpdProviderName.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
+            this.tbUpdProviderName.Lines = new string[0];
+            this.tbUpdProviderName.Location = new System.Drawing.Point(14, 20);
+            this.tbUpdProviderName.MaxLength = 32767;
+            this.tbUpdProviderName.MinimumSize = new System.Drawing.Size(100, 35);
+            this.tbUpdProviderName.Modified = false;
+            this.tbUpdProviderName.Multiline = false;
+            this.tbUpdProviderName.Name = "tbUpdProviderName";
+            stateProperties57.BorderColor = System.Drawing.Color.DodgerBlue;
+            stateProperties57.FillColor = System.Drawing.Color.Empty;
+            stateProperties57.ForeColor = System.Drawing.Color.Empty;
+            stateProperties57.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.tbUpdProviderName.OnActiveState = stateProperties57;
+            stateProperties58.BorderColor = System.Drawing.Color.Empty;
+            stateProperties58.FillColor = System.Drawing.Color.White;
+            stateProperties58.ForeColor = System.Drawing.Color.Empty;
+            stateProperties58.PlaceholderForeColor = System.Drawing.Color.Silver;
+            this.tbUpdProviderName.OnDisabledState = stateProperties58;
+            stateProperties59.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            stateProperties59.FillColor = System.Drawing.Color.Empty;
+            stateProperties59.ForeColor = System.Drawing.Color.Empty;
+            stateProperties59.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.tbUpdProviderName.OnHoverState = stateProperties59;
+            stateProperties60.BorderColor = System.Drawing.Color.Silver;
+            stateProperties60.FillColor = System.Drawing.Color.White;
+            stateProperties60.ForeColor = System.Drawing.Color.Empty;
+            stateProperties60.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.tbUpdProviderName.OnIdleState = stateProperties60;
+            this.tbUpdProviderName.PasswordChar = '\0';
+            this.tbUpdProviderName.PlaceholderForeColor = System.Drawing.Color.DimGray;
+            this.tbUpdProviderName.PlaceholderText = "Название";
+            this.tbUpdProviderName.ReadOnly = false;
+            this.tbUpdProviderName.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.tbUpdProviderName.SelectedText = "";
+            this.tbUpdProviderName.SelectionLength = 0;
+            this.tbUpdProviderName.SelectionStart = 0;
+            this.tbUpdProviderName.ShortcutsEnabled = true;
+            this.tbUpdProviderName.Size = new System.Drawing.Size(302, 35);
+            this.tbUpdProviderName.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Bunifu;
+            this.tbUpdProviderName.TabIndex = 0;
+            this.tbUpdProviderName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.tbUpdProviderName.TextMarginBottom = 0;
+            this.tbUpdProviderName.TextMarginLeft = 5;
+            this.tbUpdProviderName.TextMarginTop = 0;
+            this.tbUpdProviderName.TextPlaceholder = "Название";
+            this.tbUpdProviderName.UseSystemPasswordChar = false;
+            this.tbUpdProviderName.WordWrap = true;
+            // 
+            // transColorBtn
+            // 
+            this.transColorBtn.AnimationType = Bunifu.UI.WinForms.BunifuAnimatorNS.AnimationType.Transparent;
+            this.transColorBtn.Cursor = null;
+            animation3.AnimateOnlyDifferences = true;
+            animation3.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.BlindCoeff")));
+            animation3.LeafCoeff = 0F;
+            animation3.MaxTime = 1F;
+            animation3.MinTime = 0F;
+            animation3.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.MosaicCoeff")));
+            animation3.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation3.MosaicShift")));
+            animation3.MosaicSize = 0;
+            animation3.Padding = new System.Windows.Forms.Padding(0);
+            animation3.RotateCoeff = 0F;
+            animation3.RotateLimit = 0F;
+            animation3.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.ScaleCoeff")));
+            animation3.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.SlideCoeff")));
+            animation3.TimeCoeff = 0F;
+            animation3.TransparencyCoeff = 1F;
+            this.transColorBtn.DefaultAnimation = animation3;
+            this.transColorBtn.TimeStep = 0.03F;
+            // 
+            // transButton
+            // 
+            this.transButton.AnimationType = Bunifu.UI.WinForms.BunifuAnimatorNS.AnimationType.VertSlide;
+            this.transButton.Cursor = null;
+            animation4.AnimateOnlyDifferences = true;
+            animation4.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.BlindCoeff")));
+            animation4.LeafCoeff = 0F;
+            animation4.MaxTime = 1F;
+            animation4.MinTime = 0F;
+            animation4.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.MosaicCoeff")));
+            animation4.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation4.MosaicShift")));
+            animation4.MosaicSize = 0;
+            animation4.Padding = new System.Windows.Forms.Padding(0);
+            animation4.RotateCoeff = 0F;
+            animation4.RotateLimit = 0F;
+            animation4.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.ScaleCoeff")));
+            animation4.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.SlideCoeff")));
+            animation4.TimeCoeff = 0F;
+            animation4.TransparencyCoeff = 0F;
+            this.transButton.DefaultAnimation = animation4;
+            // 
+            // transOptions
+            // 
+            this.transOptions.AnimationType = Bunifu.UI.WinForms.BunifuAnimatorNS.AnimationType.VertSlide;
+            this.transOptions.Cursor = null;
+            animation1.AnimateOnlyDifferences = true;
+            animation1.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.BlindCoeff")));
+            animation1.LeafCoeff = 0F;
+            animation1.MaxTime = 1F;
+            animation1.MinTime = 0F;
+            animation1.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicCoeff")));
+            animation1.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicShift")));
+            animation1.MosaicSize = 0;
+            animation1.Padding = new System.Windows.Forms.Padding(0);
+            animation1.RotateCoeff = 0F;
+            animation1.RotateLimit = 0F;
+            animation1.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.ScaleCoeff")));
+            animation1.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.SlideCoeff")));
+            animation1.TimeCoeff = 0F;
+            animation1.TransparencyCoeff = 0F;
+            this.transOptions.DefaultAnimation = animation1;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2505,7 +3202,7 @@
             this.Staff.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvStaff)).EndInit();
             this.Providers.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.bunifuCustomDataGrid4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProviders)).EndInit();
             this.Deliveries.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bunifuCustomDataGrid2)).EndInit();
             this.Products.ResumeLayout(false);
@@ -2513,20 +3210,26 @@
             this.Allocation.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bunifuCustomDataGrid1)).EndInit();
             this.pagesOptions.ResumeLayout(false);
+            this.search.ResumeLayout(false);
+            this.search.PerformLayout();
             this.staffAdd.ResumeLayout(false);
             this.staffAdd.PerformLayout();
             this.bunifuShadowPanel1.ResumeLayout(false);
             this.staffEdit.ResumeLayout(false);
             this.staffEdit.PerformLayout();
             this.bunifuShadowPanel2.ResumeLayout(false);
-            this.search.ResumeLayout(false);
-            this.search.PerformLayout();
             this.productsSpravAdd.ResumeLayout(false);
             this.productsSpravAdd.PerformLayout();
             this.bunifuShadowPanel3.ResumeLayout(false);
             this.productsSpravEdit.ResumeLayout(false);
             this.productsSpravEdit.PerformLayout();
             this.bunifuShadowPanel4.ResumeLayout(false);
+            this.providersAdd.ResumeLayout(false);
+            this.providersAdd.PerformLayout();
+            this.bunifuShadowPanel5.ResumeLayout(false);
+            this.providersEdit.ResumeLayout(false);
+            this.providersEdit.PerformLayout();
+            this.bunifuShadowPanel6.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2555,7 +3258,7 @@
         private System.Windows.Forms.TabPage Providers;
         private Bunifu.UI.WinForms.BunifuTransition transColorBtn;
         private Bunifu.Framework.UI.BunifuCustomDataGrid dgvStaff;
-        private Bunifu.Framework.UI.BunifuCustomDataGrid bunifuCustomDataGrid4;
+        private Bunifu.Framework.UI.BunifuCustomDataGrid dgvProviders;
         private Bunifu.UI.WinForms.BunifuTransition transButton;
         private Bunifu.UI.WinForms.BunifuPages pagesOptions;
         private System.Windows.Forms.TabPage staffAdd;
@@ -2620,6 +3323,20 @@
         private Bunifu.Framework.UI.BunifuFlatButton btnProdSpravEdit;
         private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox tbUpdUnitProdSprav;
         private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox tbUpdNameProdSprav;
+        private System.Windows.Forms.TabPage providersAdd;
+        private System.Windows.Forms.TabPage providersEdit;
+        private System.Windows.Forms.Label label6;
+        private Bunifu.UI.WinForm.BunifuShadowPanel.BunifuShadowPanel bunifuShadowPanel5;
+        private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox tbProviderAddress;
+        private Bunifu.Framework.UI.BunifuFlatButton btnProviderAdd;
+        private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox tbProviderPhone;
+        private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox tbProviderName;
+        private System.Windows.Forms.Label label7;
+        private Bunifu.UI.WinForm.BunifuShadowPanel.BunifuShadowPanel bunifuShadowPanel6;
+        private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox tbUpdProviderAddress;
+        private Bunifu.Framework.UI.BunifuFlatButton btnProvidersUpd;
+        private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox tbUpdProviderPhone;
+        private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox tbUpdProviderName;
     }
 }
 

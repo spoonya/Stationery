@@ -20,6 +20,7 @@ namespace Stationery
             InitializeComponent();
             StaffFill();
             ProductsFill();
+            ProvidersFill();
         }
 
         /*SELECT *
@@ -74,6 +75,36 @@ namespace Stationery
 
                     foreach (string[] s in data)
                         dgvProductsSprav.Rows.Add(s);
+                }
+                catch (SqlException)
+                {
+                    throw;
+                }
+            }
+        }
+
+        private void ProvidersFill()
+        {
+            using (con = new SqlConnection(conStr))
+            using (cmd = new SqlCommand("EXEC ProvidersFill", con))
+            {
+                try
+                {
+                    con.Open();
+                    List<string[]> data = new List<string[]>();
+
+                    using (reader = cmd.ExecuteReader())
+                        while (reader.Read())
+                        {
+                            data.Add(new string[4]);
+                            data[data.Count - 1][0] = reader[0].ToString();
+                            data[data.Count - 1][1] = reader[1].ToString();
+                            data[data.Count - 1][2] = reader[2].ToString();
+                            data[data.Count - 1][3] = reader[3].ToString();
+                        }
+
+                    foreach (string[] s in data)
+                        dgvProviders.Rows.Add(s);
                 }
                 catch (SqlException)
                 {
@@ -143,6 +174,37 @@ namespace Stationery
             }
         }
 
+        private void ProvidersInsert()
+        {
+            using (con = new SqlConnection(conStr))
+            using (cmd = new SqlCommand("EXEC ProvidersInsert @name, @phone, @address", con))
+            {
+                if (!tbProviderName.Text.Equals("") && !tbProviderPhone.Text.Equals("") && !tbProviderAddress.Text.Equals(""))
+                {
+                    cmd.Parameters.AddWithValue("@name", tbProviderName.Text);
+                    cmd.Parameters.AddWithValue("@phone", tbProviderPhone.Text);
+                    cmd.Parameters.AddWithValue("@address", tbProviderAddress.Text);
+                }
+
+                try
+                {
+                    con.Open();
+
+                    cmd.ExecuteNonQuery();
+                    dgvProviders.Rows.Clear();
+                    ProvidersFill();
+                    //Reset();
+                    MessageBox.Show("Запись добавлена", "Уведомление", MessageBoxButtons.OK,
+                    MessageBoxIcon.Information, MessageBoxDefaultButton.Button2);
+                }
+                catch (SqlException)
+                {
+                    throw;
+                    //MessageBox.Show("Заполните все данные!", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+        }
+
         /*UPDATE
          ===========================*/
         private void StaffUpdate(int code)
@@ -187,17 +249,17 @@ namespace Stationery
         private void ProductsUpdate(int code)
         {
             int curRow = 0;
-            if (dgvStaff.SelectedRows.Count > 0)
-                curRow = dgvStaff.SelectedRows[0].Index;
+            if (dgvProductsSprav.SelectedRows.Count > 0)
+                curRow = dgvProductsSprav.SelectedRows[0].Index;
 
             using (con = new SqlConnection(conStr))
-            using (cmd = new SqlCommand("EXEC StaffUpdate @code, @name, @phone", con))
+            using (cmd = new SqlCommand("EXEC ProductsUpdate @code, @name, @phone", con))
             {
-                if (!tbUpdNameStaff.Text.Equals("") && !tbUpdPhoneStaff.Text.Equals(""))
+                if (!tbUpdNameProdSprav.Text.Equals("") && !tbUpdUnitProdSprav.Text.Equals(""))
                 {
                     cmd.Parameters.AddWithValue("@code", code);
-                    cmd.Parameters.AddWithValue("@name", tbUpdNameStaff.Text);
-                    cmd.Parameters.AddWithValue("@phone", tbUpdPhoneStaff.Text);
+                    cmd.Parameters.AddWithValue("@name", tbUpdNameProdSprav.Text);
+                    cmd.Parameters.AddWithValue("@phone", tbUpdUnitProdSprav.Text);
                 }
 
                 try
@@ -206,11 +268,52 @@ namespace Stationery
 
                     cmd.ExecuteNonQuery();
                     cmd.Parameters.Clear();
-                    dgvStaff.Rows.Clear();
-                    StaffFill();
-                    dgvStaff.ClearSelection();
-                    dgvStaff.Rows[curRow].Selected = true;
-                    dgvStaff.CurrentCell = dgvStaff[dgvStaff.ColumnCount - 1, curRow];
+                    dgvProductsSprav.Rows.Clear();
+                    ProductsFill();
+                    dgvProductsSprav.ClearSelection();
+                    dgvProductsSprav.Rows[curRow].Selected = true;
+                    dgvProductsSprav.CurrentCell = dgvProductsSprav[dgvProductsSprav.ColumnCount - 1, curRow];
+
+                    MessageBox.Show("Редактирование успешно выполнено", "Уведомление", MessageBoxButtons.OK,
+                    MessageBoxIcon.Information, MessageBoxDefaultButton.Button2);
+                }
+                catch (SqlException)
+                {
+                    throw;
+                    //MessageBox.Show("Заполните все данные!", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+        }
+
+        private void ProvidersUpdate(int code)
+        {
+            int curRow = 0;
+            if (dgvProviders.SelectedRows.Count > 0)
+                curRow = dgvProviders.SelectedRows[0].Index;
+
+            using (con = new SqlConnection(conStr))
+            using (cmd = new SqlCommand("EXEC ProvidersUpdate @code, @name, @phone, @address", con))
+            {
+                if (!tbUpdProviderName.Text.Equals("") && !tbUpdProviderPhone.Text.Equals("") && 
+                    !tbUpdProviderAddress.Text.Equals(""))
+                {
+                    cmd.Parameters.AddWithValue("@code", code);
+                    cmd.Parameters.AddWithValue("@name", tbUpdProviderName.Text);
+                    cmd.Parameters.AddWithValue("@phone", tbUpdProviderPhone.Text);
+                    cmd.Parameters.AddWithValue("@address", tbUpdProviderAddress.Text);
+                }
+
+                try
+                {
+                    con.Open();
+
+                    cmd.ExecuteNonQuery();
+                    cmd.Parameters.Clear();
+                    dgvProviders.Rows.Clear();
+                    ProvidersFill();
+                    dgvProviders.ClearSelection();
+                    dgvProviders.Rows[curRow].Selected = true;
+                    dgvProviders.CurrentCell = dgvProviders[dgvProviders.ColumnCount - 1, curRow];
 
                     MessageBox.Show("Редактирование успешно выполнено", "Уведомление", MessageBoxButtons.OK,
                     MessageBoxIcon.Information, MessageBoxDefaultButton.Button2);
@@ -284,6 +387,29 @@ namespace Stationery
             }
         }
 
+        private void ProvidersDelete(int[] deletedRows)
+        {
+            using (con = new SqlConnection(conStr))
+            using (cmd = new SqlCommand("EXEC ProvidersDelete @code", con))
+            {
+                try
+                {
+                    con.Open();
+
+                    for (int i = 0; i < deletedRows.Length; i++)
+                    {
+                        cmd.Parameters.AddWithValue("@code", Convert.ToInt32(deletedRows[i]));
+                        cmd.ExecuteScalar();
+                        cmd.Parameters.Clear();
+                    }
+                }
+                catch (SqlException)
+                {
+                    throw;
+                }
+            }
+        }
+
         /*SEARCH
          ===========================*/
         private void tbSearch_TextChanged(object sender, EventArgs e)
@@ -291,9 +417,9 @@ namespace Stationery
             int n = pages.SelectedIndex;
             switch (n)
             {
-                //case 0: ; break;
+                case 0: ProductsSearch(); break;
                 case 1: StaffSearch(); break;
-                    //case 2: ; break;
+                case 2: ProvidersSearch(); break;
                     //case 3: ; break;
                     //case 4: ; break;
             }
@@ -338,6 +464,85 @@ namespace Stationery
             }
         }
 
+        private void ProductsSearch()
+        {
+            using (con = new SqlConnection(conStr))
+            using (cmd = new SqlCommand("EXEC ProductsSearch @name", con))
+            {
+                cmd.Parameters.AddWithValue("@name", tbSearch.Text);
+
+                try
+                {
+                    dgvProductsSprav.Rows.Clear();
+
+                    if (tbSearch.Text.Equals(""))
+                        ProductsFill();
+                    else
+                    {
+                        con.Open();
+
+                        List<string[]> data = new List<string[]>();
+
+                        using (reader = cmd.ExecuteReader())
+                            while (reader.Read())
+                            {
+                                data.Add(new string[3]);
+
+                                data[data.Count - 1][0] = reader[0].ToString();
+                                data[data.Count - 1][1] = reader[1].ToString();
+                                data[data.Count - 1][2] = reader[2].ToString();
+                            }
+                        foreach (string[] s in data)
+                            dgvProductsSprav.Rows.Add(s);
+                    }
+                }
+                catch (SqlException)
+                {
+                    throw;
+                }
+            }
+        }
+
+        private void ProvidersSearch()
+        {
+            using (con = new SqlConnection(conStr))
+            using (cmd = new SqlCommand("EXEC ProvidersSearch @name", con))
+            {
+                cmd.Parameters.AddWithValue("@name", tbSearch.Text);
+
+                try
+                {
+                    dgvProviders.Rows.Clear();
+
+                    if (tbSearch.Text.Equals(""))
+                        ProvidersFill();
+                    else
+                    {
+                        con.Open();
+
+                        List<string[]> data = new List<string[]>();
+
+                        using (reader = cmd.ExecuteReader())
+                            while (reader.Read())
+                            {
+                                data.Add(new string[4]);
+
+                                data[data.Count - 1][0] = reader[0].ToString();
+                                data[data.Count - 1][1] = reader[1].ToString();
+                                data[data.Count - 1][2] = reader[2].ToString();
+                                data[data.Count - 1][3] = reader[3].ToString();
+                            }
+                        foreach (string[] s in data)
+                            dgvProviders.Rows.Add(s);
+                    }
+                }
+                catch (SqlException)
+                {
+                    throw;
+                }
+            }
+        }
+
         /*Функциональное меню
          =======================*/
         private void insertRecord_Click(object sender, EventArgs e)
@@ -348,7 +553,7 @@ namespace Stationery
             {
                 case 0: pagesOptions.SetPage("Доб товара_справ"); break;
                 case 1: pagesOptions.SetPage("Доб сотр"); break;
-                case 2: pagesOptions.SetPage(""); break;
+                case 2: pagesOptions.SetPage("Доб пост"); break;
                 case 3: pagesOptions.SetPage(""); break;
                 case 4: pagesOptions.SetPage(""); break;
             }
@@ -363,7 +568,7 @@ namespace Stationery
             {
                 case 0: pagesOptions.SetPage("Ред товара_справ"); break;
                 case 1: pagesOptions.SetPage("Ред сотр"); break;
-                case 2: pagesOptions.SetPage(""); break;
+                case 2: pagesOptions.SetPage("Ред пост"); break;
                 case 3: pagesOptions.SetPage(""); break;
                 case 4: pagesOptions.SetPage(""); break;
             }
@@ -401,15 +606,15 @@ namespace Stationery
                             success = true;
                         }
                         break;
-                        //case 2:
-                        //    if (dgvAllocation.RowCount > 0)
-                        //    {
-                        //        DeleteAllocation(DeleteRows(dgvAllocation));
-                        //        dgvEquip.Rows.Clear();
-                        //        EquipmentFill();
-                        //        success = true;
-                        //    }
-                        //    break;
+                    case 2:
+                        if (dgvProviders.RowCount > 0)
+                        {
+                            ProvidersDelete(DeleteRows(dgvProviders));
+                            //dgvProviders.Rows.Clear();
+                            //EquipmentFill();
+                            success = true;
+                        }
+                        break;
                         //case 3:
                         //    if (dgvCancellation.RowCount > 0)
                         //    {
@@ -458,6 +663,48 @@ namespace Stationery
         {
             transColorButton_Click(sender, e);
             ProductsInsert();
+        }
+
+        private void btnProviderAdd_Click(object sender, EventArgs e)
+        {
+            transColorButton_Click(sender, e);
+            ProvidersInsert();
+        }
+
+        private void btnProdSpravEdit_Click(object sender, EventArgs e)
+        {
+            transColorButton_Click(sender, e);
+
+            int curRow = 0;
+
+            if (dgvProductsSprav.RowCount > 0 && dgvProductsSprav.SelectedRows.Count > 0)
+            {
+                curRow = dgvProductsSprav.SelectedRows[0].Index;
+
+                ProductsUpdate(Convert.ToInt32(dgvProductsSprav[0, curRow].Value.ToString()));
+
+                //dgvAllocation.Rows.Clear();
+                //AllocationFill();
+            }
+            else MessageBox.Show("Строка не выбрана!", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
+        private void btnProvidersUpd_Click(object sender, EventArgs e)
+        {
+            transColorButton_Click(sender, e);
+
+            int curRow = 0;
+
+            if (dgvProviders.RowCount > 0 && dgvProviders.SelectedRows.Count > 0)
+            {
+                curRow = dgvProviders.SelectedRows[0].Index;
+
+                ProvidersUpdate(Convert.ToInt32(dgvProviders[0, curRow].Value.ToString()));
+
+                //dgvAllocation.Rows.Clear();
+                //AllocationFill();
+            }
+            else MessageBox.Show("Строка не выбрана!", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         private void btnAlloc_Click(object sender, EventArgs e)
@@ -538,17 +785,6 @@ namespace Stationery
 
         /*Побочные функции
          =======================*/
-        private void dgvStaff_RowEnter(object sender, DataGridViewCellEventArgs e)
-        {
-            int curRow = 0;
-
-            if (dgvStaff.SelectedRows.Count > 0)
-                curRow = dgvStaff.SelectedRows[0].Index;
-
-            tbUpdNameStaff.Text = dgvStaff[1, curRow].Value.ToString();
-            tbUpdPhoneStaff.Text = dgvStaff[2, curRow].Value.ToString();
-        }
-
         private void button_Click(object sender, EventArgs e)
         {
             pnlSelector.Visible = false;
@@ -577,5 +813,40 @@ namespace Stationery
             }
         }
 
+        private void dgvStaff_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            int curRow = 0;
+
+            if (dgvStaff.SelectedRows.Count > 0)
+                curRow = dgvStaff.SelectedRows[0].Index;
+
+            tbUpdNameStaff.Text = dgvStaff[1, curRow].Value.ToString();
+            tbUpdPhoneStaff.Text = dgvStaff[2, curRow].Value.ToString();
+        }
+
+        private void dgvProductsSprav_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            int curRow = 0;
+
+            if (dgvProductsSprav.SelectedRows.Count > 0)
+                curRow = dgvProductsSprav.SelectedRows[0].Index;
+
+            tbUpdNameProdSprav.Text = dgvProductsSprav[1, curRow].Value.ToString();
+            tbUpdUnitProdSprav.Text = dgvProductsSprav[2, curRow].Value.ToString();
+        }
+
+        private void dgvProviders_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            int curRow = 0;
+
+            if (dgvProviders.SelectedRows.Count > 0)
+                curRow = dgvProviders.SelectedRows[0].Index;
+
+            tbUpdProviderName.Text = dgvProviders[1, curRow].Value.ToString();
+            tbUpdProviderPhone.Text = dgvProviders[2, curRow].Value.ToString();
+            tbUpdProviderAddress.Text = dgvProviders[3, curRow].Value.ToString();
+        }
+
+       
     }
 }
