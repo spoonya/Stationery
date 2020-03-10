@@ -8,8 +8,7 @@ namespace Stationery
 {
     public partial class MainForm : Form
     {
-        //private string conStr = @"Data Source=|DataDirectory|\Stationery.db;Version=3";
-        private string conStr = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog = Stationery; Integrated Security = True; " + 
+        private string conStr = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog = Stationery; Integrated Security = False; " + 
             "Connect Timeout = 30; Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         private SqlConnection con;
         private SqlCommand cmd;
@@ -20,14 +19,15 @@ namespace Stationery
         {
             InitializeComponent();
             StaffFill();
+            ProductsFill();
         }
 
-        /*INSERT
+        /*SELECT *
          ===========================*/
         private void StaffFill()
         {
             using (con = new SqlConnection(conStr))
-            using (cmd = new SqlCommand("SELECT * FROM Staff", con))
+            using (cmd = new SqlCommand("EXEC StaffFill", con))
             {
                 try
                 {
@@ -53,10 +53,41 @@ namespace Stationery
             }
         }
 
-        private void InsertStaff()
+        private void ProductsFill()
         {
             using (con = new SqlConnection(conStr))
-            using (cmd = new SqlCommand("INSERT into Staff(name_staff, phone_staff) VALUES (@name, @phone)", con))
+            using (cmd = new SqlCommand("EXEC ProductsFill", con))
+            {
+                try
+                {
+                    con.Open();
+                    List<string[]> data = new List<string[]>();
+
+                    using (reader = cmd.ExecuteReader())
+                        while (reader.Read())
+                        {
+                            data.Add(new string[3]);
+                            data[data.Count - 1][0] = reader[0].ToString();
+                            data[data.Count - 1][1] = reader[1].ToString();
+                            data[data.Count - 1][2] = reader[2].ToString();
+                        }
+
+                    foreach (string[] s in data)
+                        dgvProductsSprav.Rows.Add(s);
+                }
+                catch (SqlException)
+                {
+                    throw;
+                }
+            }
+        }
+
+        /*INSERT
+         ===========================*/
+        private void StaffInsert()
+        {
+            using (con = new SqlConnection(conStr))
+            using (cmd = new SqlCommand("EXEC StaffInsert @name, @phone", con))
             {
                 if (!tbNameStaff.Text.Equals("") && !tbPhoneStaff.Text.Equals(""))
                 {
@@ -82,17 +113,85 @@ namespace Stationery
             }
         }
 
+        private void ProductsInsert()
+        {
+            using (con = new SqlConnection(conStr))
+            using (cmd = new SqlCommand("EXEC ProductsInsert @name, @unit", con))
+            {
+                if (!tbProdSpravName.Text.Equals("") && !tbProdSpravPhone.Text.Equals(""))
+                {
+                    cmd.Parameters.AddWithValue("@name", tbProdSpravName.Text);
+                    cmd.Parameters.AddWithValue("@unit", tbProdSpravPhone.Text);
+                }
+
+                try
+                {
+                    con.Open();
+
+                    cmd.ExecuteNonQuery();
+                    dgvProductsSprav.Rows.Clear();
+                    ProductsFill();
+                    //Reset();
+                    MessageBox.Show("Запись добавлена", "Уведомление", MessageBoxButtons.OK,
+                    MessageBoxIcon.Information, MessageBoxDefaultButton.Button2);
+                }
+                catch (SqlException)
+                {
+                    throw;
+                    //MessageBox.Show("Заполните все данные!", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+        }
+
         /*UPDATE
          ===========================*/
-        private void UpdateStaff(int code)
+        private void StaffUpdate(int code)
         {
             int curRow = 0;
             if (dgvStaff.SelectedRows.Count > 0)
                 curRow = dgvStaff.SelectedRows[0].Index;
 
             using (con = new SqlConnection(conStr))
-            using (cmd = new SqlCommand("UPDATE Staff SET name_staff = @name, phone_staff = @phone " +
-                "WHERE id_staff = @code", con))
+            using (cmd = new SqlCommand("EXEC StaffUpdate @code, @name, @phone", con))
+            {
+                if (!tbUpdNameStaff.Text.Equals("") && !tbUpdPhoneStaff.Text.Equals(""))
+                {
+                    cmd.Parameters.AddWithValue("@code", code);
+                    cmd.Parameters.AddWithValue("@name", tbUpdNameStaff.Text);
+                    cmd.Parameters.AddWithValue("@phone", tbUpdPhoneStaff.Text);
+                }
+
+                try
+                {
+                    con.Open();
+
+                    cmd.ExecuteNonQuery();
+                    cmd.Parameters.Clear();
+                    dgvStaff.Rows.Clear();
+                    StaffFill();
+                    dgvStaff.ClearSelection();
+                    dgvStaff.Rows[curRow].Selected = true;
+                    dgvStaff.CurrentCell = dgvStaff[dgvStaff.ColumnCount - 1, curRow];
+
+                    MessageBox.Show("Редактирование успешно выполнено", "Уведомление", MessageBoxButtons.OK,
+                    MessageBoxIcon.Information, MessageBoxDefaultButton.Button2);
+                }
+                catch (SqlException)
+                {
+                    throw;
+                    //MessageBox.Show("Заполните все данные!", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+        }
+
+        private void ProductsUpdate(int code)
+        {
+            int curRow = 0;
+            if (dgvStaff.SelectedRows.Count > 0)
+                curRow = dgvStaff.SelectedRows[0].Index;
+
+            using (con = new SqlConnection(conStr))
+            using (cmd = new SqlCommand("EXEC StaffUpdate @code, @name, @phone", con))
             {
                 if (!tbUpdNameStaff.Text.Equals("") && !tbUpdPhoneStaff.Text.Equals(""))
                 {
@@ -126,10 +225,23 @@ namespace Stationery
 
         /*DELETE
          ===========================*/
-        private void DeleteStaff(int[] deletedRows)
+        private int[] DeleteRows(DataGridView dgv)
+        {
+            int[] deletedRows = new int[dgv.SelectedRows.Count];
+            int i = 0;
+
+            foreach (DataGridViewRow item in dgv.SelectedRows)
+            {
+                deletedRows[i++] = Convert.ToInt32(dgv[0, item.Index].Value.ToString());
+                dgv.Rows.RemoveAt(item.Index);
+            }
+            return deletedRows;
+        }
+
+        private void StaffDelete(int[] deletedRows)
         {
             using (con = new SqlConnection(conStr))
-            using (cmd = new SqlCommand("DELETE FROM Staff WHERE id_staff = @code;", con))
+            using (cmd = new SqlCommand("EXEC StaffDelete @code", con))
             {
                 try
                 {
@@ -149,17 +261,27 @@ namespace Stationery
             }
         }
 
-        private int[] DeleteRows(DataGridView dgv)
+        private void ProductsDelete(int[] deletedRows)
         {
-            int[] deletedRows = new int[dgv.SelectedRows.Count];
-            int i = 0;
-
-            foreach (DataGridViewRow item in dgv.SelectedRows)
+            using (con = new SqlConnection(conStr))
+            using (cmd = new SqlCommand("EXEC ProductsDelete @code", con))
             {
-                deletedRows[i++] = Convert.ToInt32(dgv[0, item.Index].Value.ToString());
-                dgv.Rows.RemoveAt(item.Index);
+                try
+                {
+                    con.Open();
+
+                    for (int i = 0; i < deletedRows.Length; i++)
+                    {
+                        cmd.Parameters.AddWithValue("@code", Convert.ToInt32(deletedRows[i]));
+                        cmd.ExecuteScalar();
+                        cmd.Parameters.Clear();
+                    }
+                }
+                catch (SqlException)
+                {
+                    throw;
+                }
             }
-            return deletedRows;
         }
 
         /*SEARCH
@@ -170,19 +292,19 @@ namespace Stationery
             switch (n)
             {
                 //case 0: ; break;
-                case 1: SearchStaff(); break;
+                case 1: StaffSearch(); break;
                     //case 2: ; break;
                     //case 3: ; break;
                     //case 4: ; break;
             }
         }
 
-        private void SearchStaff()
+        private void StaffSearch()
         {
             using (con = new SqlConnection(conStr))
-            using (cmd = new SqlCommand("SELECT * FROM Staff WHERE name_staff LIKE @name", con))
+            using (cmd = new SqlCommand("EXEC StaffSearch @name", con))
             {
-                cmd.Parameters.AddWithValue("@name", '%' + tbSearch.Text + '%');
+                cmd.Parameters.AddWithValue("@name", tbSearch.Text);
 
                 try
                 {
@@ -224,7 +346,7 @@ namespace Stationery
             int n = pages.SelectedIndex;
             switch (n)
             {
-                case 0: pagesOptions.SetPage(""); break;
+                case 0: pagesOptions.SetPage("Доб товара_справ"); break;
                 case 1: pagesOptions.SetPage("Доб сотр"); break;
                 case 2: pagesOptions.SetPage(""); break;
                 case 3: pagesOptions.SetPage(""); break;
@@ -239,7 +361,7 @@ namespace Stationery
             int n = pages.SelectedIndex;
             switch (n)
             {
-                case 0: pagesOptions.SetPage(""); break;
+                case 0: pagesOptions.SetPage("Ред товара_справ"); break;
                 case 1: pagesOptions.SetPage("Ред сотр"); break;
                 case 2: pagesOptions.SetPage(""); break;
                 case 3: pagesOptions.SetPage(""); break;
@@ -257,21 +379,21 @@ namespace Stationery
                 int n = pages.SelectedIndex;
                 switch (n)
                 {
-                    //case 0:
-                    //    if (dgvEquip.RowCount > 0)
-                    //    {
-                    //        DeleteEquip(DeleteRows(dgvEquip));
-                    //        dgvAllocation.Rows.Clear();
-                    //        AllocationFill();
-                    //        dgvCancellation.Rows.Clear();
-                    //        CancellationFill();
-                    //        success = true;
-                    //    }
-                    //    break;
+                    case 0:
+                        if (dgvProductsSprav.RowCount > 0)
+                        {
+                            ProductsDelete(DeleteRows(dgvProductsSprav));
+                            //dgvAllocation.Rows.Clear();
+                            //AllocationFill();
+                            //dgvCancellation.Rows.Clear();
+                            //CancellationFill();
+                            success = true;
+                        }
+                        break;
                     case 1:
                         if (dgvStaff.RowCount > 0)
                         {
-                            DeleteStaff(DeleteRows(dgvStaff));
+                            StaffDelete(DeleteRows(dgvStaff));
                             //dgvAllocation.Rows.Clear();
                             //dgvProducts.Rows.Clear();
                             //EquipmentFill();
@@ -324,12 +446,18 @@ namespace Stationery
             OpenTrans();
         }
 
-        /*Кнопки выполнения операций
+        /*Кнопки вызова процедур и функций
          =======================*/
         private void btnAddStaff_Click(object sender, EventArgs e)
         {
             transColorButton_Click(sender, e);
-            InsertStaff();
+            StaffInsert();
+        }
+
+        private void btnProdSpravAdd_Click(object sender, EventArgs e)
+        {
+            transColorButton_Click(sender, e);
+            ProductsInsert();
         }
 
         private void btnAlloc_Click(object sender, EventArgs e)
@@ -348,7 +476,7 @@ namespace Stationery
             {
                 curRow = dgvStaff.SelectedRows[0].Index;
 
-                UpdateStaff(Convert.ToInt32(dgvStaff[0, curRow].Value.ToString()));
+                StaffUpdate(Convert.ToInt32(dgvStaff[0, curRow].Value.ToString()));
 
                 //dgvAllocation.Rows.Clear();
                 //AllocationFill();
@@ -448,5 +576,6 @@ namespace Stationery
                 transOptions.ShowSync(pagesOptions);
             }
         }
+
     }
 }
