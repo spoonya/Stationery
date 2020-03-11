@@ -14,6 +14,7 @@ namespace Stationery
         private SqlCommand cmd;
         private SqlDataReader reader;
         private int curPage = 0;
+        private List<int> CodeProviderForDelivery = new List<int>();
 
         public MainForm()
         {
@@ -21,9 +22,11 @@ namespace Stationery
             StaffFill();
             ProductsFill();
             ProvidersFill();
+            ProvidersListFill();
+            DeliveriesFill();
         }
 
-        /*SELECT *
+        /*SELECT
          ===========================*/
         private void StaffFill()
         {
@@ -105,6 +108,97 @@ namespace Stationery
 
                     foreach (string[] s in data)
                         dgvProviders.Rows.Add(s);
+                }
+                catch (SqlException)
+                {
+                    throw;
+                }
+            }
+        }
+
+        private void ProvidersListFill()
+        {
+            using (con = new SqlConnection(conStr))
+            using (cmd = new SqlCommand("EXEC ProvidersListFill", con))
+            {
+                if (ddProviders.Items.Count > 0) ddProviders.Items.Clear();
+                if (ddUpdProviders.Items.Count > 0) ddUpdProviders.Items.Clear();
+                CodeProviderForDelivery.Clear();
+                reader = null;
+                try
+                {
+                    con.Open();
+                    using (reader = cmd.ExecuteReader())
+                        while (reader.Read())
+                        {
+                            CodeProviderForDelivery.Add(new int { });
+                            CodeProviderForDelivery[CodeProviderForDelivery.Count - 1] = Convert.ToInt32(reader[1].ToString());
+                            ddProviders.Items.Add(reader[0].ToString());
+                            ddUpdProviders.Items.Add(reader[0].ToString());
+                        }
+                }
+                catch (SqlException)
+                {
+                    throw;
+                }
+            }
+        }
+
+        private string SelectNameProviderFromCode(int code)
+        {
+            string name = null;
+            using (con = new SqlConnection(conStr))
+            using (cmd = new SqlCommand("EXEC SelectNameProviderFromCode @code", con))
+            {
+                cmd.Parameters.AddWithValue("@code", code);
+                try
+                {
+                    con.Open();
+
+                    using (reader = cmd.ExecuteReader())
+                        while (reader.Read())
+                        {
+                            name = reader[0].ToString();
+                        }
+                    return name;
+                }
+                catch (SqlException)
+                {
+                    throw;
+                }
+            }
+        }
+
+        private void DeliveriesFill()
+        {
+            using (con = new SqlConnection(conStr))
+            using (cmd = new SqlCommand("EXEC DeliveriesFill", con))
+            {
+                try
+                {
+                    con.Open();
+                    List<string[]> data = new List<string[]>();
+
+                    using (reader = cmd.ExecuteReader())
+                        while (reader.Read())
+                        {
+                            data.Add(new string[5]);
+                            data[data.Count - 1][0] = reader[0].ToString();
+                            data[data.Count - 1][1] = reader[1].ToString();
+                            data[data.Count - 1][2] = reader[2].ToString();
+                            data[data.Count - 1][3] = reader[3].ToString();
+                        }
+
+                    //Получение имени поставщика по коду
+                    for (int i = 0; i < data.Count; i++)
+                    {
+                        if (!(data[i][3]).Equals(""))
+                            data[i][4] = SelectNameProviderFromCode(Convert.ToInt32(data[i][3]));
+                        else data[i][4] = "Не установлен";
+                    }
+
+                    foreach (string[] s in data)
+                        dgvDeliveries.Rows.Add(s);
                 }
                 catch (SqlException)
                 {
@@ -204,6 +298,41 @@ namespace Stationery
                 }
             }
         }
+
+        private void DeliveriesInsert()
+        {
+            using (con = new SqlConnection(conStr))
+            using (cmd = new SqlCommand("EXEC DeliveriesInsert @date, @ttn, @id_provider", con))
+            {
+                if (!dateDelivery.Text.Equals("") && !tbTtnDelivery.Text.Equals("") && ddProviders.SelectedIndex != -1)
+                {
+                    DateTime date = Convert.ToDateTime(dateDelivery.Value.ToString("yyyy-MM-dd"));
+                    cmd.Parameters.AddWithValue("@date", dateDelivery.Text);
+                    cmd.Parameters.AddWithValue("@ttn", tbTtnDelivery.Text);
+                    cmd.Parameters.AddWithValue("@id_provider", CodeProviderForDelivery[ddProviders.SelectedIndex]);
+
+
+                    try
+                    {
+                        con.Open();
+
+                        cmd.ExecuteNonQuery();
+                        dgvDeliveries.Rows.Clear();
+                        DeliveriesFill();
+                        //Reset();
+                        MessageBox.Show("Запись добавлена", "Уведомление", MessageBoxButtons.OK,
+                        MessageBoxIcon.Information, MessageBoxDefaultButton.Button2);
+                    }
+                    catch (SqlException)
+                    {
+                        throw;
+                        //MessageBox.Show("Заполните все данные!", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                else MessageBox.Show("Заполните все данные!", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
 
         /*UPDATE
          ===========================*/
@@ -554,7 +683,7 @@ namespace Stationery
                 case 0: pagesOptions.SetPage("Доб товара_справ"); break;
                 case 1: pagesOptions.SetPage("Доб сотр"); break;
                 case 2: pagesOptions.SetPage("Доб пост"); break;
-                case 3: pagesOptions.SetPage(""); break;
+                case 3: pagesOptions.SetPage("Доб поставки"); break;
                 case 4: pagesOptions.SetPage(""); break;
             }
             OpenTrans();
@@ -569,7 +698,7 @@ namespace Stationery
                 case 0: pagesOptions.SetPage("Ред товара_справ"); break;
                 case 1: pagesOptions.SetPage("Ред сотр"); break;
                 case 2: pagesOptions.SetPage("Ред пост"); break;
-                case 3: pagesOptions.SetPage(""); break;
+                case 3: pagesOptions.SetPage("Ред поставки"); break;
                 case 4: pagesOptions.SetPage(""); break;
             }
             OpenTrans();
@@ -669,6 +798,12 @@ namespace Stationery
         {
             transColorButton_Click(sender, e);
             ProvidersInsert();
+        }
+
+        private void btnDeliveryAdd_Click(object sender, EventArgs e)
+        {
+            transColorButton_Click(sender, e);
+            DeliveriesInsert();
         }
 
         private void btnProdSpravEdit_Click(object sender, EventArgs e)
@@ -847,6 +982,6 @@ namespace Stationery
             tbUpdProviderAddress.Text = dgvProviders[3, curRow].Value.ToString();
         }
 
-       
+        
     }
 }

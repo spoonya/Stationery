@@ -43,3 +43,7 @@ C:\Users\Serega\Desktop\Stationery\Stationery\bin\Debug\Bunifu.UI.WinForm.Bunifu
 C:\Users\Serega\Desktop\Stationery\Stationery\bin\Debug\Bunifu.UI.WinForms.BunifuTextbox.dll
 C:\Users\Serega\Desktop\Stationery\Stationery\bin\Debug\Bunifu.UI.WinForm.BunifuShadowPanel.xml
 C:\Users\Serega\Desktop\Stationery\Stationery\bin\Debug\Bunifu.UI.WinForms.BunifuTextbox.xml
+C:\Users\Serega\Desktop\Stationery\Stationery\bin\Debug\Bunifu.UI.WinForms.BunifuDropdown.dll
+C:\Users\Serega\Desktop\Stationery\Stationery\bin\Debug\Bunifu.UI.WinForms.BunifuDropdown.xml
+C:\Users\Serega\Desktop\Stationery\Stationery\bin\Debug\Bunifu.UI.WinForms.BunifuDatePicker.dll
+C:\Users\Serega\Desktop\Stationery\Stationery\bin\Debug\Bunifu.UI.WinForms.BunifuDatePicker.xml

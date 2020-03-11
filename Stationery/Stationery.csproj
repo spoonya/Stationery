@@ -54,6 +54,12 @@
     <Reference Include="Bunifu.UI.WinForm.BunifuShadowPanel">
       <HintPath>D:\Сборка\MY SOFT\IDE\Microsoft Visual Studio 2015\Bunifu UI WinForms 1.11.5.1\Bunifu.UI.WinForm.BunifuShadowPanel.dll</HintPath>
     </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuDatePicker">
+      <HintPath>D:\Сборка\MY SOFT\IDE\Microsoft Visual Studio 2015\Bunifu UI WinForms 1.11.5.1\Bunifu.UI.WinForms.BunifuDatePicker.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuDropdown">
+      <HintPath>D:\Сборка\MY SOFT\IDE\Microsoft Visual Studio 2015\Bunifu UI WinForms 1.11.5.1\Bunifu.UI.WinForms.BunifuDropdown.dll</HintPath>
+    </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuPages">
       <HintPath>D:\Сборка\MY SOFT\IDE\Microsoft Visual Studio 2015\Bunifu UI WinForms 1.11.5.1\Bunifu.UI.WinForms.BunifuPages.dll</HintPath>
     </Reference>
