@@ -539,6 +539,29 @@ namespace Stationery
             }
         }
 
+        private void DeiveriesDelete(int[] deletedRows) //!!!!!!!!!!!!!!!!!!!
+        {
+            using (con = new SqlConnection(conStr))
+            using (cmd = new SqlCommand("EXEC DeliveriesDelete @code", con))
+            {
+                try
+                {
+                    con.Open();
+
+                    for (int i = 0; i < deletedRows.Length; i++)
+                    {
+                        cmd.Parameters.AddWithValue("@code", Convert.ToInt32(deletedRows[i]));
+                        cmd.ExecuteScalar();
+                        cmd.Parameters.Clear();
+                    }
+                }
+                catch (SqlException)
+                {
+                    throw;
+                }
+            }
+        }
+
         /*SEARCH
          ===========================*/
         private void tbSearch_TextChanged(object sender, EventArgs e)
@@ -981,7 +1004,5 @@ namespace Stationery
             tbUpdProviderPhone.Text = dgvProviders[2, curRow].Value.ToString();
             tbUpdProviderAddress.Text = dgvProviders[3, curRow].Value.ToString();
         }
-
-        
     }
 }
