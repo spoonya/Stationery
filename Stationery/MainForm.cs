@@ -15,6 +15,7 @@ namespace Stationery
         private SqlDataReader reader;
         private int curPage = 0;
         private List<int> CodeProviderForDelivery = new List<int>();
+        private List<int> CodeProductForDelivery = new List<int>();
 
         public MainForm()
         {
@@ -23,6 +24,7 @@ namespace Stationery
             ProductsFill();
             ProvidersFill();
             ProvidersListFill();
+            ProductsListFill();
             DeliveriesFill();
         }
 
@@ -78,6 +80,34 @@ namespace Stationery
 
                     foreach (string[] s in data)
                         dgvProductsSprav.Rows.Add(s);
+                }
+                catch (SqlException)
+                {
+                    throw;
+                }
+            }
+        }
+
+        private void ProductsListFill()
+        {
+            using (con = new SqlConnection(conStr))
+            using (cmd = new SqlCommand("EXEC ProductsListFill", con))
+            {
+                if (ddProducts.Items.Count > 0) ddProducts.Items.Clear();
+                //if (ddUpdProducts.Items.Count > 0) ddUpdProducts.Items.Clear();
+                CodeProductForDelivery.Clear();
+                reader = null;
+                try
+                {
+                    con.Open();
+                    using (reader = cmd.ExecuteReader())
+                        while (reader.Read())
+                        {
+                            CodeProductForDelivery.Add(new int { });
+                            CodeProductForDelivery[CodeProductForDelivery.Count - 1] = Convert.ToInt32(reader[1].ToString());
+                            ddProducts.Items.Add(reader[0].ToString());
+                            //ddUpdProviders.Items.Add(reader[0].ToString());
+                        }
                 }
                 catch (SqlException)
                 {
@@ -169,6 +199,31 @@ namespace Stationery
             }
         }
 
+        private string SelectNameProductFromCode(int code)
+        {
+            string name = null;
+            using (con = new SqlConnection(conStr))
+            using (cmd = new SqlCommand("EXEC SelectNameProductFromCode @code", con))
+            {
+                cmd.Parameters.AddWithValue("@code", code);
+                try
+                {
+                    con.Open();
+
+                    using (reader = cmd.ExecuteReader())
+                        while (reader.Read())
+                        {
+                            name = reader[0].ToString();
+                        }
+                    return name;
+                }
+                catch (SqlException)
+                {
+                    throw;
+                }
+            }
+        }
+
         private void DeliveriesFill()
         {
             using (con = new SqlConnection(conStr))
@@ -182,11 +237,16 @@ namespace Stationery
                     using (reader = cmd.ExecuteReader())
                         while (reader.Read())
                         {
-                            data.Add(new string[5]);
+                            data.Add(new string[10]);
                             data[data.Count - 1][0] = reader[0].ToString();
                             data[data.Count - 1][1] = reader[1].ToString();
                             data[data.Count - 1][2] = reader[2].ToString();
                             data[data.Count - 1][3] = reader[3].ToString();
+                            data[data.Count - 1][5] = reader[4].ToString();
+                            data[data.Count - 1][6] = reader[5].ToString();
+                            data[data.Count - 1][8] = reader[7].ToString();
+                            data[data.Count - 1][9] = reader[8].ToString();
+
                         }
 
                     //Получение имени поставщика по коду
@@ -195,6 +255,14 @@ namespace Stationery
                         if (!(data[i][3]).Equals(""))
                             data[i][4] = SelectNameProviderFromCode(Convert.ToInt32(data[i][3]));
                         else data[i][4] = "Не установлен";
+                    }
+
+                    //Получение названия канцтовара по коду
+                    for (int i = 0; i < data.Count; i++)
+                    {
+                        if (!(data[i][6]).Equals(""))
+                            data[i][7] = SelectNameProductFromCode(Convert.ToInt32(data[i][6]));
+                        else data[i][7] = "Не установлен";
                     }
 
                     foreach (string[] s in data)
@@ -301,22 +369,26 @@ namespace Stationery
 
         private void DeliveriesInsert()
         {
+            int lastAddedDelivery = 0;
+
             using (con = new SqlConnection(conStr))
             using (cmd = new SqlCommand("EXEC DeliveriesInsert @date, @ttn, @id_provider", con))
             {
-                if (!dateDelivery.Text.Equals("") && !tbTtnDelivery.Text.Equals("") && ddProviders.SelectedIndex != -1)
+                if (!dateDelivery.Text.Equals("") && !tbTtnDelivery.Text.Equals("") && ddProviders.SelectedIndex != -1
+                    && !tbCountProductsInfo.Text.Equals("") && !tbPriceProductsInfo.Text.Equals("") &&
+                    ddProducts.SelectedIndex != -1)
                 {
                     DateTime date = Convert.ToDateTime(dateDelivery.Value.ToString("yyyy-MM-dd"));
-                    cmd.Parameters.AddWithValue("@date", dateDelivery.Text);
+                    cmd.Parameters.AddWithValue("@date", date);
                     cmd.Parameters.AddWithValue("@ttn", tbTtnDelivery.Text);
-                    cmd.Parameters.AddWithValue("@id_provider", CodeProviderForDelivery[ddProviders.SelectedIndex]);
-
+                    cmd.Parameters.AddWithValue("@id_provider", CodeProviderForDelivery[ddProviders.SelectedIndex]);        
 
                     try
                     {
                         con.Open();
 
-                        cmd.ExecuteNonQuery();
+                        lastAddedDelivery = Convert.ToInt32(cmd.ExecuteScalar());
+                        ProductsInfoInsert(lastAddedDelivery);
                         dgvDeliveries.Rows.Clear();
                         DeliveriesFill();
                         //Reset();
@@ -333,6 +405,28 @@ namespace Stationery
             }
         }
 
+        private void ProductsInfoInsert(int lastAddedDelivery)
+        {
+            using (con = new SqlConnection(conStr))
+            using (cmd = new SqlCommand("EXEC ProductsInfoInsert @id_product, @id_delivery, @count, @price", con))
+            {
+                cmd.Parameters.AddWithValue("@id_product", CodeProductForDelivery[ddProducts.SelectedIndex]);
+                cmd.Parameters.AddWithValue("@id_delivery", lastAddedDelivery);
+                cmd.Parameters.AddWithValue("@count", tbCountProductsInfo.Text);
+                cmd.Parameters.AddWithValue("@price", tbPriceProductsInfo.Text);
+
+                try
+                {
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    
+                }
+                catch (SqlException)
+                {
+                    throw;
+                }
+            }
+        }
 
         /*UPDATE
          ===========================*/
@@ -539,7 +633,7 @@ namespace Stationery
             }
         }
 
-        private void DeiveriesDelete(int[] deletedRows) //!!!!!!!!!!!!!!!!!!!
+        private void DeliveriesDelete(int[] deletedRows) //!!!!!!!!!!!!!!!!!!!
         {
             using (con = new SqlConnection(conStr))
             using (cmd = new SqlCommand("EXEC DeliveriesDelete @code", con))
