@@ -94,7 +94,7 @@ namespace Stationery
             using (cmd = new SqlCommand("EXEC ProductsListFill", con))
             {
                 if (ddProducts.Items.Count > 0) ddProducts.Items.Clear();
-                //if (ddUpdProducts.Items.Count > 0) ddUpdProducts.Items.Clear();
+                if (ddProductsUpd.Items.Count > 0) ddProductsUpd.Items.Clear();
                 CodeProductForDelivery.Clear();
                 reader = null;
                 try
@@ -106,7 +106,7 @@ namespace Stationery
                             CodeProductForDelivery.Add(new int { });
                             CodeProductForDelivery[CodeProductForDelivery.Count - 1] = Convert.ToInt32(reader[1].ToString());
                             ddProducts.Items.Add(reader[0].ToString());
-                            //ddUpdProviders.Items.Add(reader[0].ToString());
+                            ddProductsUpd.Items.Add(reader[0].ToString());
                         }
                 }
                 catch (SqlException)
@@ -152,7 +152,7 @@ namespace Stationery
             using (cmd = new SqlCommand("EXEC ProvidersListFill", con))
             {
                 if (ddProviders.Items.Count > 0) ddProviders.Items.Clear();
-                if (ddUpdProviders.Items.Count > 0) ddUpdProviders.Items.Clear();
+                if (ddProvidersUpd.Items.Count > 0) ddProvidersUpd.Items.Clear();
                 CodeProviderForDelivery.Clear();
                 reader = null;
                 try
@@ -164,7 +164,7 @@ namespace Stationery
                             CodeProviderForDelivery.Add(new int { });
                             CodeProviderForDelivery[CodeProviderForDelivery.Count - 1] = Convert.ToInt32(reader[1].ToString());
                             ddProviders.Items.Add(reader[0].ToString());
-                            ddUpdProviders.Items.Add(reader[0].ToString());
+                            ddProvidersUpd.Items.Add(reader[0].ToString());
                         }
                 }
                 catch (SqlException)
@@ -549,6 +549,79 @@ namespace Stationery
             }
         }
 
+        private void DeliveriesUpdate(int code)
+        {
+            int curRow = 0;
+            if (dgvDeliveries.SelectedRows.Count > 0)
+                curRow = dgvDeliveries.SelectedRows[0].Index;
+
+            using (con = new SqlConnection(conStr))
+            using (cmd = new SqlCommand("EXEC DeliveryUpdate @code, @date, @ttn, @provider", con))
+            {
+                //if (!dateUpdDelivery.Text.Equals("") && !tbUpdTtnDelivery.Text.Equals("") && ddProvidersUpd.SelectedIndex != -1
+                //   && !tbUpdCountProductsInfo.Text.Equals("") && !tbUpdPriceProductsInfo.Text.Equals("") &&
+                //   ddProductsUpd.SelectedIndex != -1)
+                //{
+                    cmd.Parameters.AddWithValue("@code", code);
+                    DateTime date = Convert.ToDateTime(dateUpdDelivery.Value.ToString("yyyy-MM-dd"));
+                    cmd.Parameters.AddWithValue("@date", date);
+                    cmd.Parameters.AddWithValue("@ttn", tbUpdTtnDelivery.Text);
+                    //cmd.Parameters.AddWithValue("@provider", CodeProviderForDelivery[ddProvidersUpd.SelectedIndex]); !!!!!!!!!
+                //}
+
+                try
+                {
+                    con.Open();
+
+                    cmd.ExecuteNonQuery();
+                    cmd.Parameters.Clear();
+                    ProductsInfoUpdate(code);
+                    dgvDeliveries.Rows.Clear();
+                    DeliveriesFill();
+                    dgvDeliveries.ClearSelection();
+                    dgvDeliveries.Rows[curRow].Selected = true;
+                    dgvDeliveries.CurrentCell = dgvDeliveries[dgvDeliveries.ColumnCount - 1, curRow];
+
+                    MessageBox.Show("Редактирование успешно выполнено", "Уведомление", MessageBoxButtons.OK,
+                    MessageBoxIcon.Information, MessageBoxDefaultButton.Button2);
+                }
+                catch (SqlException)
+                {
+                    throw;
+                    //MessageBox.Show("Заполните все данные!", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+        }
+
+        private void ProductsInfoUpdate(int code)
+        {
+            int curRow = 0;
+            if (dgvDeliveries.SelectedRows.Count > 0)
+                curRow = dgvDeliveries.SelectedRows[0].Index;
+
+            using (con = new SqlConnection(conStr))
+            using (cmd = new SqlCommand("EXEC ProductsInfoUpdate @code, @product, @count, @price", con))
+            {
+                cmd.Parameters.AddWithValue("@code", code);
+                cmd.Parameters.AddWithValue("@product", CodeProductForDelivery[ddProductsUpd.SelectedIndex]);
+                cmd.Parameters.AddWithValue("@count", tbUpdCountProductsInfo.Text);
+                cmd.Parameters.AddWithValue("@price", tbUpdPriceProductsInfo.Text);
+
+                try
+                {
+                    con.Open();
+
+                    cmd.ExecuteNonQuery();
+                    cmd.Parameters.Clear();
+                }
+                catch (SqlException)
+                {
+                    throw;
+                    //MessageBox.Show("Заполните все данные!", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+        }
+
         /*DELETE
          ===========================*/
         private int[] DeleteRows(DataGridView dgv)
@@ -633,10 +706,10 @@ namespace Stationery
             }
         }
 
-        private void DeliveriesDelete(int[] deletedRows) //!!!!!!!!!!!!!!!!!!!
+        private void DeliveriesDelete(int[] deletedRows)
         {
             using (con = new SqlConnection(conStr))
-            using (cmd = new SqlCommand("EXEC DeliveriesDelete @code", con))
+            using (cmd = new SqlCommand("EXEC DeliveryDelete @code", con))
             {
                 try
                 {
@@ -861,15 +934,15 @@ namespace Stationery
                             success = true;
                         }
                         break;
-                        //case 3:
-                        //    if (dgvCancellation.RowCount > 0)
-                        //    {
-                        //        DeleteCancellation(DeleteRows(dgvCancellation));
-                        //        dgvEquip.Rows.Clear();
-                        //        EquipmentFill();
-                        //        success = true;
-                        //    }
-                        //    break;
+                    case 3:
+                        if (dgvDeliveries.RowCount > 0)
+                        {
+                            DeliveriesDelete(DeleteRows(dgvDeliveries));
+                            dgvDeliveries.Rows.Clear();
+                            DeliveriesFill();
+                            success = true;
+                        }
+                        break;
                         //case 4:
                         //    if (dgvProviders.RowCount > 0)
                         //    {
@@ -1097,6 +1170,40 @@ namespace Stationery
             tbUpdProviderName.Text = dgvProviders[1, curRow].Value.ToString();
             tbUpdProviderPhone.Text = dgvProviders[2, curRow].Value.ToString();
             tbUpdProviderAddress.Text = dgvProviders[3, curRow].Value.ToString();
+        }
+
+        private void dgvDeliveries_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            int curRow = 0;
+
+            if (dgvDeliveries.SelectedRows.Count > 0)
+                curRow = dgvDeliveries.SelectedRows[0].Index;
+
+            dateUpdDelivery.Text = dgvDeliveries[1, curRow].Value.ToString();
+            tbUpdTtnDelivery.Text = dgvDeliveries[2, curRow].Value.ToString(); 
+            ddProvidersUpd.Text = dgvDeliveries[4, curRow].Value.ToString();
+            ddProductsUpd.Text = dgvDeliveries[7, curRow].Value.ToString();
+            tbUpdPriceProductsInfo.Text = dgvDeliveries[9, curRow].Value.ToString();
+            tbUpdCountProductsInfo.Text = dgvDeliveries[8, curRow].Value.ToString();
+            
+        }
+
+        private void btnUpdDelivery_Click(object sender, EventArgs e)
+        {
+            transColorButton_Click(sender, e);
+
+            int curRow = 0;
+
+            if (dgvDeliveries.RowCount > 0 && dgvDeliveries.SelectedRows.Count > 0)
+            {
+                curRow = dgvDeliveries.SelectedRows[0].Index;
+
+                DeliveriesUpdate(Convert.ToInt32(dgvDeliveries[0, curRow].Value.ToString()));
+
+                //dgvAllocation.Rows.Clear();
+                //AllocationFill();
+            }
+            else MessageBox.Show("Строка не выбрана!", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
     }
 }
