@@ -558,16 +558,18 @@ namespace Stationery
             using (con = new SqlConnection(conStr))
             using (cmd = new SqlCommand("EXEC DeliveryUpdate @code, @date, @ttn, @provider", con))
             {
-                //if (!dateUpdDelivery.Text.Equals("") && !tbUpdTtnDelivery.Text.Equals("") && ddProvidersUpd.SelectedIndex != -1
-                //   && !tbUpdCountProductsInfo.Text.Equals("") && !tbUpdPriceProductsInfo.Text.Equals("") &&
-                //   ddProductsUpd.SelectedIndex != -1)
-                //{
+                if (!dateUpdDelivery.Text.Equals("") && !tbUpdTtnDelivery.Text.Equals("") 
+                    && !tbUpdCountProductsInfo.Text.Equals("") && !tbUpdPriceProductsInfo.Text.Equals(""))
+                {
                     cmd.Parameters.AddWithValue("@code", code);
                     DateTime date = Convert.ToDateTime(dateUpdDelivery.Value.ToString("yyyy-MM-dd"));
                     cmd.Parameters.AddWithValue("@date", date);
                     cmd.Parameters.AddWithValue("@ttn", tbUpdTtnDelivery.Text);
-                    //cmd.Parameters.AddWithValue("@provider", CodeProviderForDelivery[ddProvidersUpd.SelectedIndex]); !!!!!!!!!
-                //}
+                    if (ddProvidersUpd.SelectedIndex != -1)
+                        cmd.Parameters.AddWithValue("@provider", CodeProviderForDelivery[ddProvidersUpd.SelectedIndex]);
+                    else
+                        cmd.Parameters.AddWithValue("@provider", dgvDeliveries[3, curRow].Value.ToString());
+                }
 
                 try
                 {
@@ -603,7 +605,10 @@ namespace Stationery
             using (cmd = new SqlCommand("EXEC ProductsInfoUpdate @code, @product, @count, @price", con))
             {
                 cmd.Parameters.AddWithValue("@code", code);
-                cmd.Parameters.AddWithValue("@product", CodeProductForDelivery[ddProductsUpd.SelectedIndex]);
+                if (ddProductsUpd.SelectedIndex != -1)
+                    cmd.Parameters.AddWithValue("@product", CodeProductForDelivery[ddProductsUpd.SelectedIndex]);
+                else
+                    cmd.Parameters.AddWithValue("@product", dgvDeliveries[6, curRow].Value.ToString());         
                 cmd.Parameters.AddWithValue("@count", tbUpdCountProductsInfo.Text);
                 cmd.Parameters.AddWithValue("@price", tbUpdPriceProductsInfo.Text);
 
@@ -739,7 +744,7 @@ namespace Stationery
                 case 0: ProductsSearch(); break;
                 case 1: StaffSearch(); break;
                 case 2: ProvidersSearch(); break;
-                    //case 3: ; break;
+                case 3: DeliveriesSearch(); break;
                     //case 4: ; break;
             }
         }
@@ -853,6 +858,66 @@ namespace Stationery
                             }
                         foreach (string[] s in data)
                             dgvProviders.Rows.Add(s);
+                    }
+                }
+                catch (SqlException)
+                {
+                    throw;
+                }
+            }
+        }
+
+        private void DeliveriesSearch()
+        {
+            using (con = new SqlConnection(conStr))
+            using (cmd = new SqlCommand("EXEC DeliveriesSearch @str", con))
+            {
+                cmd.Parameters.AddWithValue("@str", tbSearch.Text);
+
+                try
+                {
+                    dgvDeliveries.Rows.Clear();
+
+                    if (tbSearch.Text.Equals(""))
+                        DeliveriesFill();
+                    else
+                    {
+                        con.Open();
+
+                        List<string[]> data = new List<string[]>();
+
+                        using (reader = cmd.ExecuteReader())
+                            while (reader.Read())
+                            {
+                                data.Add(new string[10]);
+                                data[data.Count - 1][0] = reader[6].ToString();
+                                data[data.Count - 1][1] = reader[0].ToString();
+                                data[data.Count - 1][2] = reader[1].ToString();
+                                data[data.Count - 1][3] = reader[2].ToString();
+                                data[data.Count - 1][5] = reader[7].ToString();
+                                data[data.Count - 1][6] = reader[3].ToString();
+                                data[data.Count - 1][8] = reader[4].ToString();
+                                data[data.Count - 1][9] = reader[5].ToString();
+                            }
+
+                        //Получение имени поставщика по коду
+                        for (int i = 0; i < data.Count; i++)
+                        {
+                            if (!(data[i][3]).Equals(""))
+                                data[i][4] = SelectNameProviderFromCode(Convert.ToInt32(data[i][3]));
+                            else data[i][4] = "Не установлен";
+                        }
+
+                        //Получение названия канцтовара по коду
+                        for (int i = 0; i < data.Count; i++)
+                        {
+                            if (!(data[i][6]).Equals(""))
+                                data[i][7] = SelectNameProductFromCode(Convert.ToInt32(data[i][6]));
+                            else data[i][7] = "Не установлен";
+                        }
+
+                        foreach (string[] s in data)
+                            dgvDeliveries.Rows.Add(s);
                     }
                 }
                 catch (SqlException)
