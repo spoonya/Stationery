@@ -444,6 +444,31 @@ namespace Stationery
             }
         }
 
+        private int SelectCountProd(int code)
+        {
+            int count = 0;
+            using (con = new SqlConnection(conStr))
+            using (cmd = new SqlCommand("EXEC CountCheck @code", con))
+            {
+                cmd.Parameters.AddWithValue("@code", code);
+                try
+                {
+                    con.Open();
+
+                    using (reader = cmd.ExecuteReader())
+                        while (reader.Read())
+                        {
+                            count = Convert.ToInt32(reader[0].ToString());
+                        }
+                    return count;
+                }
+                catch (SqlException)
+                {
+                    throw;
+                }
+            }
+        }
+
         /*INSERT
          ===========================*/
         private void StaffInsert()
@@ -1433,8 +1458,7 @@ namespace Stationery
         private void btnAllocAdd_Click(object sender, EventArgs e)
         {
             transColorButton_Click(sender, e);
-            AllocationInsert();
-            
+            AllocationInsert();         
         }
 
         private void btnAllocEdit_Click(object sender, EventArgs e)
@@ -1667,13 +1691,12 @@ namespace Stationery
             ddProvidersUpd.Text = dgvDeliveries[4, curRow].Value.ToString();
             ddProductsUpd.Text = dgvDeliveries[7, curRow].Value.ToString();
             tbUpdPriceProductsInfo.Text = dgvDeliveries[9, curRow].Value.ToString();
-            tbUpdCountProductsInfo.Text = dgvDeliveries[8, curRow].Value.ToString();
-            
+            tbUpdCountProductsInfo.Text = dgvDeliveries[8, curRow].Value.ToString();          
         }
 
         private void dgvAlloc_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
-            int curRow = 0;
+            int curRow = 0, code = 0;
 
             if (dgvAlloc.SelectedRows.Count > 0)
                 curRow = dgvAlloc.SelectedRows[0].Index;
@@ -1682,6 +1705,8 @@ namespace Stationery
             ddUpdAllocProd.Text = dgvAlloc[4, curRow].Value.ToString();
             tbUpdAllocCount.Text = dgvAlloc[5, curRow].Value.ToString();
             dateAllocUpd.Text = dgvAlloc[6, curRow].Value.ToString();
+            code = Convert.ToInt32(dgvAlloc[3, curRow].Value.ToString());
+            tbAllocFreeUpd.Text = SelectCountProd(code).ToString();
         }
 
         private void отчётToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1749,6 +1774,22 @@ namespace Stationery
                 }
             }
             else MessageBox.Show("Строка не выбрана!", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        }     
+        }
+
+        private void ddAllocProd_SelectedValueChanged(object sender, EventArgs e)
+        {          
+            tbAllocFree.Text = SelectCountProd(CodeProductForAllocation[ddAllocProd.SelectedIndex]).ToString();
+        }
+
+        private void ddUpdAllocProd_SelectedValueChanged(object sender, EventArgs e)
+        {
+            int curRow = 0, code = 0;
+
+            if (dgvAlloc.SelectedRows.Count > 0)
+                curRow = dgvAlloc.SelectedRows[0].Index;
+
+            code = Convert.ToInt32(dgvAlloc[3, curRow].Value.ToString());
+            tbAllocFreeUpd.Text = SelectCountProd(CodeProductForAllocation[ddUpdAllocProd.SelectedIndex]).ToString();
+        }
     }
 }

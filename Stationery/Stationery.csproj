@@ -69,6 +69,9 @@
     <Reference Include="Bunifu.UI.WinForms.BunifuTextbox">
       <HintPath>D:\Сборка\MY SOFT\IDE\Microsoft Visual Studio 2015\Bunifu UI WinForms 1.11.5.1\Bunifu.UI.WinForms.BunifuTextbox.dll</HintPath>
     </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuToolTip">
+      <HintPath>D:\Сборка\MY SOFT\IDE\Microsoft Visual Studio 2015\Bunifu UI WinForms 1.11.5.1\Bunifu.UI.WinForms.BunifuToolTip.dll</HintPath>
+    </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuTransition">
       <HintPath>D:\Сборка\MY SOFT\IDE\Microsoft Visual Studio 2015\Bunifu UI WinForms 1.11.5.1\Bunifu.UI.WinForms.BunifuTransition.dll</HintPath>
     </Reference>

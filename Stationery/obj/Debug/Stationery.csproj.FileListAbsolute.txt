@@ -47,3 +47,5 @@ C:\Users\Serega\Desktop\Stationery\Stationery\bin\Debug\Bunifu.UI.WinForms.Bunif
 C:\Users\Serega\Desktop\Stationery\Stationery\bin\Debug\Bunifu.UI.WinForms.BunifuDatePicker.dll
 C:\Users\Serega\Desktop\Stationery\Stationery\bin\Debug\Bunifu.UI.WinForms.BunifuDatePicker.xml
 C:\Users\Serega\Desktop\Stationery\Stationery\obj\Debug\Stationery.csprojResolveAssemblyReference.cache
+C:\Users\Serega\Desktop\Stationery\Stationery\bin\Debug\Bunifu.UI.WinForms.BunifuToolTip.dll
+C:\Users\Serega\Desktop\Stationery\Stationery\bin\Debug\Bunifu.UI.WinForms.BunifuToolTip.xml
