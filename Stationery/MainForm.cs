@@ -5,6 +5,8 @@ using System.Windows.Forms;
 using System.Collections.Generic;
 using Microsoft.Office.Interop.Excel;
 using System.IO;
+using System.Runtime.InteropServices;
+using System.Diagnostics;
 
 namespace Stationery
 {
@@ -597,6 +599,7 @@ namespace Stationery
 
         private void AllocationInsert()
         {
+            int count = 0;
             using (con = new SqlConnection(conStr))
             using (cmd = new SqlCommand("EXEC AllocationInsert @staff, @product, @count, @date", con))
             {
@@ -612,17 +615,28 @@ namespace Stationery
                 try
                 {
                     con.Open();
+                    using (reader = cmd.ExecuteReader())
+                        while (reader.Read())
+                        {
+                            count = Convert.ToInt32(reader[0].ToString());
+                        }
 
-                    cmd.ExecuteNonQuery();
-                    dgvAlloc.Rows.Clear();
-                    AllocationFill();
-                    Reset();
-                    MessageBox.Show("Запись добавлена", "Уведомление", MessageBoxButtons.OK,
-                    MessageBoxIcon.Information, MessageBoxDefaultButton.Button2);
+                    if (count > 0)
+                    {
+                        dgvAlloc.Rows.Clear();
+                        AllocationFill();
+                        Reset();
+                        MessageBox.Show("Запись добавлена", "Уведомление", MessageBoxButtons.OK,
+                        MessageBoxIcon.Information, MessageBoxDefaultButton.Button2);
+                    }
+                    else
+                        MessageBox.Show("Превышено допустимое количество", "Ошибка", MessageBoxButtons.OK,
+                        MessageBoxIcon.Error, MessageBoxDefaultButton.Button2);
                 }
                 catch (SqlException)
                 {
-                    MessageBox.Show("Заполните все данные!", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    //MessageBox.Show("Заполните все данные!", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    throw;
                 }
             }
         }
@@ -774,17 +788,8 @@ namespace Stationery
                 {
                     con.Open();
 
-                    cmd.ExecuteNonQuery();
-                    cmd.Parameters.Clear();
-                    ProductsInfoUpdate(code);
-                    dgvDeliveries.Rows.Clear();
-                    DeliveriesFill();
-                    dgvDeliveries.ClearSelection();
-                    dgvDeliveries.Rows[curRow].Selected = true;
-                    dgvDeliveries.CurrentCell = dgvDeliveries[dgvDeliveries.ColumnCount - 1, curRow];
+                    cmd.ExecuteNonQuery();                   
 
-                    MessageBox.Show("Редактирование успешно выполнено", "Уведомление", MessageBoxButtons.OK,
-                    MessageBoxIcon.Information, MessageBoxDefaultButton.Button2);
                 }
                 catch (SqlException)
                 {
@@ -796,7 +801,7 @@ namespace Stationery
 
         private void ProductsInfoUpdate(int code)
         {
-            int curRow = 0;
+            int curRow = 0, count = 0;
             if (dgvDeliveries.SelectedRows.Count > 0)
                 curRow = dgvDeliveries.SelectedRows[0].Index;
 
@@ -807,17 +812,40 @@ namespace Stationery
                 if (ddProductsUpd.SelectedIndex != -1)
                     cmd.Parameters.AddWithValue("@product", CodeProductForDeliveries[ddProductsUpd.SelectedIndex]);
                 else
-                    cmd.Parameters.AddWithValue("@product", dgvDeliveries[6, curRow].Value.ToString());         
+                    cmd.Parameters.AddWithValue("@product", dgvDeliveries[6, curRow].Value.ToString());
                 cmd.Parameters.AddWithValue("@count", tbUpdCountProductsInfo.Text);
                 cmd.Parameters.AddWithValue("@price", tbUpdPriceProductsInfo.Text);
 
                 try
                 {
                     con.Open();
+                    using (reader = cmd.ExecuteReader())
+                        while (reader.Read())
+                        {
+                            count = Convert.ToInt32(reader[0].ToString());
+                        }
 
-                    cmd.ExecuteNonQuery();
-                    cmd.Parameters.Clear();
+                    if (count >= 0)
+                    {
+                        DeliveriesUpdate(code);
+                        cmd.Parameters.Clear();
+                        dgvDeliveries.Rows.Clear();
+                        DeliveriesFill();
+                        dgvDeliveries.ClearSelection();
+                        dgvDeliveries.Rows[curRow].Selected = true;
+                        dgvDeliveries.CurrentCell = dgvDeliveries[dgvDeliveries.ColumnCount - 1, curRow];
+
+                        MessageBox.Show("Редактирование успешно выполнено", "Уведомление", MessageBoxButtons.OK,
+                        MessageBoxIcon.Information, MessageBoxDefaultButton.Button2);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Превышено допустимое количество", "Ошибка", MessageBoxButtons.OK,
+                        MessageBoxIcon.Error, MessageBoxDefaultButton.Button2);
+                       
+                    }
                 }
+            
                 catch (SqlException)
                 {
                     throw;
@@ -826,9 +854,10 @@ namespace Stationery
             }
         }
 
+
         private void AllocationUpdate(int code)
         {
-            int curRow = 0;
+            int curRow = 0, count = 0;
             if (dgvAlloc.SelectedRows.Count > 0)
                 curRow = dgvAlloc.SelectedRows[0].Index;
 
@@ -854,17 +883,26 @@ namespace Stationery
                 try
                 {
                     con.Open();
+                    using (reader = cmd.ExecuteReader())
+                        while (reader.Read())
+                        {
+                            count = Convert.ToInt32(reader[0].ToString());
+                        }
 
-                    cmd.ExecuteNonQuery();
-                    cmd.Parameters.Clear();
-                    dgvAlloc.Rows.Clear();
-                    AllocationFill();
-                    dgvAlloc.ClearSelection();
-                    dgvAlloc.Rows[curRow].Selected = true;
-                    dgvAlloc.CurrentCell = dgvAlloc[dgvAlloc.ColumnCount - 1, curRow];
-
-                    MessageBox.Show("Редактирование успешно выполнено", "Уведомление", MessageBoxButtons.OK,
-                    MessageBoxIcon.Information, MessageBoxDefaultButton.Button2);
+                    if (count > 0)
+                    {
+                        dgvAlloc.Rows.Clear();
+                        AllocationFill();
+                        Reset();                      
+                        dgvAlloc.ClearSelection();
+                        dgvAlloc.Rows[curRow].Selected = true;
+                        dgvAlloc.CurrentCell = dgvAlloc[dgvAlloc.ColumnCount - 1, curRow];
+                        MessageBox.Show("Редактирование успешно выполнено", "Уведомление", MessageBoxButtons.OK,
+                        MessageBoxIcon.Information, MessageBoxDefaultButton.Button2);
+                    }
+                    else
+                        MessageBox.Show("Превышено допустимое количество", "Ошибка", MessageBoxButtons.OK,
+                        MessageBoxIcon.Error, MessageBoxDefaultButton.Button2);              
                 }
                 catch (SqlException)
                 {
@@ -1469,7 +1507,7 @@ namespace Stationery
             {
                 curRow = dgvDeliveries.SelectedRows[0].Index;
 
-                DeliveriesUpdate(Convert.ToInt32(dgvDeliveries[0, curRow].Value.ToString()));
+                ProductsInfoUpdate(Convert.ToInt32(dgvDeliveries[0, curRow].Value.ToString()));
 
                 ProductsListFillForAllocation();
             }
@@ -1646,45 +1684,71 @@ namespace Stationery
             dateAllocUpd.Text = dgvAlloc[6, curRow].Value.ToString();
         }
 
-        private void print_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         private void отчётToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int curRow = 0, i = 4;
-            curRow = dgvAlloc.SelectedRows[0].Index;
-
-            application = new Microsoft.Office.Interop.Excel.Application
+            if (dgvAlloc.RowCount > 0 && dgvAlloc.SelectedRows.Count > 0)
             {
-                DisplayAlerts = false
-            };
+                SqlDataReader localReader = null;
+                int curRow = 0, i = 24;
+                curRow = dgvAlloc.SelectedRows[0].Index;
+                application = new Microsoft.Office.Interop.Excel.Application
+                {
+                    DisplayAlerts = false
+                };
+                const string template = "Report1.xlsx";
+                workBook = application.Workbooks.Open(Path.Combine(Environment.CurrentDirectory, template));
+                worksheet = workBook.ActiveSheet as Worksheet;
 
-            const string template = "Report1.xlsx";
 
-            workBook = application.Workbooks.Open(Path.Combine(Environment.CurrentDirectory, template));
+                using (con = new SqlConnection(conStr))
+                using (cmd = new SqlCommand("EXEC Statement @staff, @date", con))
+                {
+                    cmd.Parameters.AddWithValue("@staff", dgvAlloc[1, curRow].Value.ToString());
+                    DateTime date = Convert.ToDateTime(dgvAlloc[6, curRow].Value.ToString());
+                    cmd.Parameters.AddWithValue("@date", date.ToString("yyyy-MM-dd"));
 
-            worksheet = workBook.ActiveSheet as Worksheet;
+                    try
+                    {
+                        con.Open();
 
-            for (int row = 0; row < dgvAlloc.RowCount; row++)
-            {
-                worksheet.Range["A2" + i].Value = dgvAlloc[4, row].Value.ToString();
-                worksheet.Range["E2" + i].Value = dgvAlloc[5, row].Value.ToString();
-                i++;
+                        using (localReader = cmd.ExecuteReader())
+                            while (localReader.Read())
+                            {
+                                worksheet.Range["C17"].Value = SelectNameStaffFromCode(Convert.ToInt32(localReader[0].ToString()));
+                                worksheet.Range["A" + i].Value = SelectNameProductFromCode(Convert.ToInt32(localReader[1].ToString()));
+                                worksheet.Range["E" + i].Value = localReader[2].ToString();
+                                worksheet.Range["F" + i].Value = localReader[3].ToString();
+                                worksheet.Range["G" + i].Value = localReader[4].ToString();
+                                worksheet.Range["A12"].Value = localReader[5].ToString();
+
+                                //Range range = worksheet.get_Range(worksheet.Cells[24, 1], worksheet.Cells[i, 5]);
+                                //range.Borders.get_Item(XlBordersIndex.xlEdgeBottom).LineStyle = XlLineStyle.xlContinuous;
+                                //range.Borders.get_Item(XlBordersIndex.xlEdgeRight).LineStyle = XlLineStyle.xlContinuous;
+                                //range.Borders.get_Item(XlBordersIndex.xlInsideHorizontal).LineStyle = XlLineStyle.xlContinuous;
+                                //range.Borders.get_Item(XlBordersIndex.xlInsideVertical).LineStyle = XlLineStyle.xlContinuous;
+                                //range.Borders.get_Item(XlBordersIndex.xlEdgeTop).LineStyle = XlLineStyle.xlContinuous;
+
+                                i++;
+                            }
+
+                        int under = i;
+                        under--;
+
+                        worksheet.Range["A" + i].Value = "Итого";
+                        worksheet.Range["E" + i].Formula = "=СУММ(E24:" + "E" + under + ")";
+                        worksheet.Range["F" + i].Formula = "=СУММ(F24:" + "F" + under + ")";
+                        worksheet.Range["G" + i].Formula = "=СУММ(G24:" + "G" + under + ")";
+
+                        application.Visible = true;
+                        TopMost = true;
+                    }
+                    catch (SqlException)
+                    {
+                        throw;
+                    }                 
+                }
             }
-            //worksheet.Range["F24"].Value = dgvAlloc[6, curRow].Value.ToString();
-            //worksheet.Range["G24"].Value = dgvAlloc[7, curRow].Value.ToString();
-
-
-
-            //for (int i = 0; i < checkedListData3.Items.Count; i++)
-            //{
-            //    worksheet.Cells[i + 8, 1].Value = checkedListData3.Items[i];
-            //    worksheet.Cells[i + 8, 2].Value = checkedListData3.GetItemChecked(i) ? "Checked" : "Unchecked";
-            //}
-            application.Visible = true;
-            TopMost = true;
-        }
+            else MessageBox.Show("Строка не выбрана!", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }     
     }
 }

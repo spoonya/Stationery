@@ -391,7 +391,6 @@
             this.print.Size = new System.Drawing.Size(28, 20);
             this.print.Text = "ffgh";
             this.print.ToolTipText = "Печать";
-            this.print.Click += new System.EventHandler(this.print_Click);
             // 
             // отчётToolStripMenuItem
             // 
