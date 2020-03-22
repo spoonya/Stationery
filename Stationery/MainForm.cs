@@ -1777,8 +1777,9 @@ namespace Stationery
         }
 
         private void ddAllocProd_SelectedValueChanged(object sender, EventArgs e)
-        {          
-            tbAllocFree.Text = SelectCountProd(CodeProductForAllocation[ddAllocProd.SelectedIndex]).ToString();
+        {   
+            if (ddAllocProd.SelectedIndex != -1)
+                tbAllocFree.Text = SelectCountProd(CodeProductForAllocation[ddAllocProd.SelectedIndex]).ToString();
         }
 
         private void ddUpdAllocProd_SelectedValueChanged(object sender, EventArgs e)
@@ -1788,8 +1789,11 @@ namespace Stationery
             if (dgvAlloc.SelectedRows.Count > 0)
                 curRow = dgvAlloc.SelectedRows[0].Index;
 
-            code = Convert.ToInt32(dgvAlloc[3, curRow].Value.ToString());
-            tbAllocFreeUpd.Text = SelectCountProd(CodeProductForAllocation[ddUpdAllocProd.SelectedIndex]).ToString();
+            if (ddUpdAllocProd.SelectedIndex != -1)
+            {
+                code = Convert.ToInt32(dgvAlloc[3, curRow].Value.ToString());
+                tbAllocFreeUpd.Text = SelectCountProd(CodeProductForAllocation[ddUpdAllocProd.SelectedIndex]).ToString();
+            }
         }
     }
 }
