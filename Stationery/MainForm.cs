@@ -20,7 +20,7 @@ namespace Stationery
         private int curPage = 0;
         private List<int> CodeProviderForDelivery = new List<int>();
         private List<int> CodeProductForDeliveries = new List<int>();
-        private List<int> CodeProductForAllocation = new List<int>();
+        private List<int> CodeProductForAlloc = new List<int>();
         private List<int> CodeStaffForAlloc = new List<int>();
         private Microsoft.Office.Interop.Excel.Application application;
         private Workbook workBook;
@@ -95,7 +95,7 @@ namespace Stationery
                 }
                 catch (SqlException)
                 {
-                    throw;
+                    //throw;
                 }
             }
         }
@@ -124,7 +124,7 @@ namespace Stationery
                 }
                 catch (SqlException)
                 {
-                    throw;
+                    //throw;
                 }
             }
         }
@@ -152,7 +152,7 @@ namespace Stationery
                 }
                 catch (SqlException)
                 {
-                    throw;
+                    //throw;
                 }
             }
         }
@@ -164,7 +164,7 @@ namespace Stationery
             {
                 if (ddAllocProd.Items.Count > 0) ddAllocProd.Items.Clear();
                 if (ddUpdAllocProd.Items.Count > 0) ddUpdAllocProd.Items.Clear();
-                CodeProductForAllocation.Clear();
+                CodeProductForAlloc.Clear();
                 reader = null;
                 try
                 {
@@ -172,15 +172,15 @@ namespace Stationery
                     using (reader = cmd.ExecuteReader())
                         while (reader.Read())
                         {
-                            CodeProductForAllocation.Add(new int { });
-                            CodeProductForAllocation[CodeProductForAllocation.Count - 1] = Convert.ToInt32(reader[1].ToString());
+                            CodeProductForAlloc.Add(new int { });
+                            CodeProductForAlloc[CodeProductForAlloc.Count - 1] = Convert.ToInt32(reader[1].ToString());
                             ddAllocProd.Items.Add(reader[0].ToString());
                             ddUpdAllocProd.Items.Add(reader[0].ToString());
                         }
                 }
                 catch (SqlException)
                 {
-                    throw;
+                    //throw;
                 }
             }
         }
@@ -210,7 +210,7 @@ namespace Stationery
                 }
                 catch (SqlException)
                 {
-                    throw;
+                    //throw;
                 }
             }
         }
@@ -238,7 +238,7 @@ namespace Stationery
                 }
                 catch (SqlException)
                 {
-                    throw;
+                    //throw;
                 }
             }
         }
@@ -266,7 +266,7 @@ namespace Stationery
                 }
                 catch (SqlException)
                 {
-                    throw;
+                    //throw;
                 }
             }
         }
@@ -392,7 +392,7 @@ namespace Stationery
                 }
                 catch (SqlException)
                 {
-                    throw;
+                    //throw;
                 }
             }
         }
@@ -439,7 +439,7 @@ namespace Stationery
                 }
                 catch (SqlException)
                 {
-                    throw;
+                    //throw;
                 }
             }
         }
@@ -524,8 +524,8 @@ namespace Stationery
                 }
                 catch (SqlException)
                 {
-                    throw;
-                    //MessageBox.Show("Заполните все данные!", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    //throw;
+                    MessageBox.Show("Заполните все данные!", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
         }
@@ -555,8 +555,8 @@ namespace Stationery
                 }
                 catch (SqlException)
                 {
-                    throw;
-                    //MessageBox.Show("Заполните все данные!", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    //throw;
+                    MessageBox.Show("Заполните все данные!", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
         }
@@ -591,8 +591,8 @@ namespace Stationery
                     }
                     catch (SqlException)
                     {
-                        throw;
-                        //MessageBox.Show("Заполните все данные!", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        //throw;
+                        MessageBox.Show("Заполните все данные!", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
                 else MessageBox.Show("Заполните все данные!", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -617,7 +617,7 @@ namespace Stationery
                 }
                 catch (SqlException)
                 {
-                    throw;
+                    //throw;
                 }
             }
         }
@@ -631,7 +631,7 @@ namespace Stationery
                 if (!tbAllocCount.Text.Equals("") && ddAllocProd.SelectedIndex != -1 && ddAllocStaff.SelectedIndex != -1)
                 {
                     cmd.Parameters.AddWithValue("@staff", CodeStaffForAlloc[ddAllocStaff.SelectedIndex]);
-                    cmd.Parameters.AddWithValue("@product", CodeProductForDeliveries[ddAllocProd.SelectedIndex]);
+                    cmd.Parameters.AddWithValue("@product", CodeProductForAlloc[ddAllocProd.SelectedIndex]);
                     cmd.Parameters.AddWithValue("@count", tbAllocCount.Text);
                     DateTime date = Convert.ToDateTime(dateAlloc.Value.ToString("yyyy-MM-dd"));
                     cmd.Parameters.AddWithValue("@date", date);
@@ -646,7 +646,7 @@ namespace Stationery
                             count = Convert.ToInt32(reader[0].ToString());
                         }
 
-                    if (count > 0)
+                    if (count >= 0 && Convert.ToInt32(tbAllocCount.Text) > 0)
                     {
                         dgvAlloc.Rows.Clear();
                         AllocationFill();
@@ -655,7 +655,7 @@ namespace Stationery
                         MessageBoxIcon.Information, MessageBoxDefaultButton.Button2);
                     }
                     else
-                        MessageBox.Show("Превышено допустимое количество", "Ошибка", MessageBoxButtons.OK,
+                        MessageBox.Show("Недопустимое количество", "Ошибка", MessageBoxButtons.OK,
                         MessageBoxIcon.Error, MessageBoxDefaultButton.Button2);
                 }
                 catch (SqlException)
@@ -701,8 +701,8 @@ namespace Stationery
                 }
                 catch (SqlException)
                 {
-                    throw;
-                    //MessageBox.Show("Заполните все данные!", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    //throw;
+                    MessageBox.Show("Заполните все данные!", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
         }
@@ -740,8 +740,8 @@ namespace Stationery
                 }
                 catch (SqlException)
                 {
-                    throw;
-                    //MessageBox.Show("Заполните все данные!", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    //throw;
+                    MessageBox.Show("Заполните все данные!", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
         }
@@ -781,8 +781,8 @@ namespace Stationery
                 }
                 catch (SqlException)
                 {
-                    throw;
-                    //MessageBox.Show("Заполните все данные!", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    //throw;
+                    MessageBox.Show("Заполните все данные!", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
         }
@@ -818,8 +818,8 @@ namespace Stationery
                 }
                 catch (SqlException)
                 {
-                    throw;
-                    //MessageBox.Show("Заполните все данные!", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    //throw;
+                    MessageBox.Show("Заполните все данные!", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
         }
@@ -865,16 +865,15 @@ namespace Stationery
                     }
                     else
                     {
-                        MessageBox.Show("Превышено допустимое количество", "Ошибка", MessageBoxButtons.OK,
-                        MessageBoxIcon.Error, MessageBoxDefaultButton.Button2);
-                       
+                        MessageBox.Show("Недопустимое количество", "Ошибка", MessageBoxButtons.OK,
+                        MessageBoxIcon.Error, MessageBoxDefaultButton.Button2);                      
                     }
                 }
             
                 catch (SqlException)
                 {
-                    throw;
-                    //MessageBox.Show("Заполните все данные!", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    //throw;
+                    MessageBox.Show("Заполните все данные!", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
         }
@@ -887,7 +886,7 @@ namespace Stationery
                 curRow = dgvAlloc.SelectedRows[0].Index;
 
             using (con = new SqlConnection(conStr))
-            using (cmd = new SqlCommand("EXEC AllocationUpdate @code, @staff, @product, @count, @date", con))
+            using (cmd = new SqlCommand("EXEC AllocationUpdate @code, @staff, @product, @count, @oldCount, @date", con))
             {
                 if (!dateAllocUpd.Text.Equals("") && !tbUpdAllocCount.Text.Equals(""))
                 {
@@ -895,6 +894,7 @@ namespace Stationery
                     DateTime date = Convert.ToDateTime(dateAllocUpd.Value.ToString("yyyy-MM-dd"));
                     cmd.Parameters.AddWithValue("@date", date);
                     cmd.Parameters.AddWithValue("@count", tbUpdAllocCount.Text);
+                    cmd.Parameters.AddWithValue("@oldCount", dgvAlloc[5, curRow].Value.ToString());
                     if (ddUpdAllocProd.SelectedIndex != -1)
                         cmd.Parameters.AddWithValue("@product", CodeProductForDeliveries[ddUpdAllocProd.SelectedIndex]);
                     else
@@ -914,25 +914,25 @@ namespace Stationery
                             count = Convert.ToInt32(reader[0].ToString());
                         }
 
-                    if (count > 0)
+                    if (count >= 0 && Convert.ToInt32(tbUpdAllocCount.Text) > 0)
                     {
                         dgvAlloc.Rows.Clear();
-                        AllocationFill();
-                        Reset();                      
+                        AllocationFill();                                          
                         dgvAlloc.ClearSelection();
                         dgvAlloc.Rows[curRow].Selected = true;
                         dgvAlloc.CurrentCell = dgvAlloc[dgvAlloc.ColumnCount - 1, curRow];
+                        Reset();
                         MessageBox.Show("Редактирование успешно выполнено", "Уведомление", MessageBoxButtons.OK,
                         MessageBoxIcon.Information, MessageBoxDefaultButton.Button2);
                     }
                     else
-                        MessageBox.Show("Превышено допустимое количество", "Ошибка", MessageBoxButtons.OK,
+                        MessageBox.Show("Недопустимое количество", "Ошибка", MessageBoxButtons.OK,
                         MessageBoxIcon.Error, MessageBoxDefaultButton.Button2);              
                 }
                 catch (SqlException)
                 {
-                    throw;
-                    //MessageBox.Show("Заполните все данные!", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    //throw;
+                    MessageBox.Show("Заполните все данные!", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
         }
@@ -970,7 +970,7 @@ namespace Stationery
                 }
                 catch (SqlException)
                 {
-                    throw;
+                    //throw;
                 }
             }
         }
@@ -993,7 +993,7 @@ namespace Stationery
                 }
                 catch (SqlException)
                 {
-                    throw;
+                    //throw;
                 }
             }
         }
@@ -1016,7 +1016,7 @@ namespace Stationery
                 }
                 catch (SqlException)
                 {
-                    throw;
+                    //throw;
                 }
             }
         }
@@ -1039,7 +1039,7 @@ namespace Stationery
                 }
                 catch (SqlException)
                 {
-                    throw;
+                    //throw;
                 }
             }
         }
@@ -1062,7 +1062,7 @@ namespace Stationery
                 }
                 catch (SqlException)
                 {
-                    throw;
+                    //throw;
                 }
             }
         }
@@ -1116,7 +1116,7 @@ namespace Stationery
                 }
                 catch (SqlException)
                 {
-                    throw;
+                    //throw;
                 }
             }
         }
@@ -1155,7 +1155,7 @@ namespace Stationery
                 }
                 catch (SqlException)
                 {
-                    throw;
+                    //throw;
                 }
             }
         }
@@ -1195,7 +1195,7 @@ namespace Stationery
                 }
                 catch (SqlException)
                 {
-                    throw;
+                    //throw;
                 }
             }
         }
@@ -1255,7 +1255,7 @@ namespace Stationery
                 }
                 catch (SqlException)
                 {
-                    throw;
+                    //throw;
                 }
             }
         }
@@ -1312,7 +1312,7 @@ namespace Stationery
                 }
                 catch (SqlException)
                 {
-                    throw;
+                    //throw;
                 }
             }
         }
@@ -1754,23 +1754,43 @@ namespace Stationery
                                 //range.Borders.get_Item(XlBordersIndex.xlEdgeTop).LineStyle = XlLineStyle.xlContinuous;
 
                                 i++;
+                            }                       
+                    }
+                    catch (SqlException)
+                    {
+                        //throw;
+                    }                 
+                }
+
+                using (con = new SqlConnection(conStr))
+                using (cmd = new SqlCommand("EXEC StatementTotal @staff, @date", con))
+                {
+                    int under = i;
+                    under--;
+                    cmd.Parameters.AddWithValue("@staff", dgvAlloc[1, curRow].Value.ToString());
+                    DateTime date = Convert.ToDateTime(dgvAlloc[6, curRow].Value.ToString());
+                    cmd.Parameters.AddWithValue("@date", date.ToString("yyyy-MM-dd"));
+
+                    try
+                    {
+                        con.Open();
+
+                        using (reader = cmd.ExecuteReader())
+                            while (reader.Read())
+                            {
+                                worksheet.Range["A" + i].Value = "Итого";
+                                worksheet.Range["E" + i].Formula = reader[0].ToString();//"=СУММ(E24:" + "E" + under + ")";
+                                worksheet.Range["F" + i].Formula = reader[1].ToString();//"=СУММ(F24:" + "F" + under + ")";
+                                worksheet.Range["G" + i].Formula = reader[2].ToString();//"=СУММ(G24:" + "G" + under + ")";
                             }
-
-                        int under = i;
-                        under--;
-
-                        worksheet.Range["A" + i].Value = "Итого";
-                        worksheet.Range["E" + i].Formula = "=СУММ(E24:" + "E" + under + ")";
-                        worksheet.Range["F" + i].Formula = "=СУММ(F24:" + "F" + under + ")";
-                        worksheet.Range["G" + i].Formula = "=СУММ(G24:" + "G" + under + ")";
 
                         application.Visible = true;
                         TopMost = true;
                     }
                     catch (SqlException)
                     {
-                        throw;
-                    }                 
+                        //throw;
+                    }
                 }
             }
             else MessageBox.Show("Строка не выбрана!", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -1779,7 +1799,7 @@ namespace Stationery
         private void ddAllocProd_SelectedValueChanged(object sender, EventArgs e)
         {   
             if (ddAllocProd.SelectedIndex != -1)
-                tbAllocFree.Text = SelectCountProd(CodeProductForAllocation[ddAllocProd.SelectedIndex]).ToString();
+                tbAllocFree.Text = SelectCountProd(CodeProductForAlloc[ddAllocProd.SelectedIndex]).ToString();
         }
 
         private void ddUpdAllocProd_SelectedValueChanged(object sender, EventArgs e)
@@ -1792,7 +1812,7 @@ namespace Stationery
             if (ddUpdAllocProd.SelectedIndex != -1)
             {
                 code = Convert.ToInt32(dgvAlloc[3, curRow].Value.ToString());
-                tbAllocFreeUpd.Text = SelectCountProd(CodeProductForAllocation[ddUpdAllocProd.SelectedIndex]).ToString();
+                tbAllocFreeUpd.Text = SelectCountProd(CodeProductForAlloc[ddUpdAllocProd.SelectedIndex]).ToString();
             }
         }
     }
