@@ -5,8 +5,6 @@ using System.Windows.Forms;
 using System.Collections.Generic;
 using Microsoft.Office.Interop.Excel;
 using System.IO;
-using System.Runtime.InteropServices;
-using System.Diagnostics;
 
 namespace Stationery
 {
@@ -95,7 +93,7 @@ namespace Stationery
                 }
                 catch (SqlException)
                 {
-                    //throw;
+                    throw;
                 }
             }
         }
@@ -124,7 +122,7 @@ namespace Stationery
                 }
                 catch (SqlException)
                 {
-                    //throw;
+                    throw;
                 }
             }
         }
@@ -152,7 +150,7 @@ namespace Stationery
                 }
                 catch (SqlException)
                 {
-                    //throw;
+                    throw;
                 }
             }
         }
@@ -180,7 +178,7 @@ namespace Stationery
                 }
                 catch (SqlException)
                 {
-                    //throw;
+                    throw;
                 }
             }
         }
@@ -210,7 +208,7 @@ namespace Stationery
                 }
                 catch (SqlException)
                 {
-                    //throw;
+                    throw;
                 }
             }
         }
@@ -238,7 +236,7 @@ namespace Stationery
                 }
                 catch (SqlException)
                 {
-                    //throw;
+                    throw;
                 }
             }
         }
@@ -266,7 +264,7 @@ namespace Stationery
                 }
                 catch (SqlException)
                 {
-                    //throw;
+                    throw;
                 }
             }
         }
@@ -368,7 +366,6 @@ namespace Stationery
                             data[data.Count - 1][6] = reader[5].ToString();
                             data[data.Count - 1][8] = reader[7].ToString();
                             data[data.Count - 1][9] = reader[8].ToString();
-
                         }
 
                     //Получение имени поставщика по коду
@@ -392,7 +389,7 @@ namespace Stationery
                 }
                 catch (SqlException)
                 {
-                    //throw;
+                    throw;
                 }
             }
         }
@@ -439,7 +436,7 @@ namespace Stationery
                 }
                 catch (SqlException)
                 {
-                    //throw;
+                    throw;
                 }
             }
         }
@@ -523,8 +520,7 @@ namespace Stationery
                     MessageBoxIcon.Information, MessageBoxDefaultButton.Button2);
                 }
                 catch (SqlException)
-                {
-                    //throw;
+                {                 
                     MessageBox.Show("Заполните все данные!", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
@@ -555,7 +551,6 @@ namespace Stationery
                 }
                 catch (SqlException)
                 {
-                    //throw;
                     MessageBox.Show("Заполните все данные!", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
@@ -582,16 +577,20 @@ namespace Stationery
                         con.Open();
 
                         lastAddedDelivery = Convert.ToInt32(cmd.ExecuteScalar());
-                        ProductsInfoInsert(lastAddedDelivery);
-                        dgvDeliveries.Rows.Clear();
-                        DeliveriesFill();
-                        Reset();
-                        MessageBox.Show("Запись добавлена", "Уведомление", MessageBoxButtons.OK,
-                        MessageBoxIcon.Information, MessageBoxDefaultButton.Button2);
+                        if (ProductsInfoInsert(lastAddedDelivery))
+                        {
+                            dgvDeliveries.Rows.Clear();
+                            DeliveriesFill();
+                            Reset();
+                            MessageBox.Show("Запись добавлена", "Уведомление", MessageBoxButtons.OK,
+                            MessageBoxIcon.Information, MessageBoxDefaultButton.Button2);
+                        }
+                        else
+                            MessageBox.Show("Недопустимое количество", "Ошибка", MessageBoxButtons.OK,
+                            MessageBoxIcon.Error, MessageBoxDefaultButton.Button2);
                     }
                     catch (SqlException)
                     {
-                        //throw;
                         MessageBox.Show("Заполните все данные!", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
@@ -599,7 +598,7 @@ namespace Stationery
             }
         }
 
-        private void ProductsInfoInsert(int lastAddedDelivery)
+        private bool ProductsInfoInsert(int lastAddedDelivery)
         {
             using (con = new SqlConnection(conStr))
             using (cmd = new SqlCommand("EXEC ProductsInfoInsert @id_product, @id_delivery, @count, @price", con))
@@ -611,13 +610,18 @@ namespace Stationery
 
                 try
                 {
-                    con.Open();
-                    cmd.ExecuteNonQuery();
-                    
+                    if (Convert.ToInt32(tbCountProductsInfo.Text) > 0)
+                    {
+                        con.Open();
+                        cmd.ExecuteNonQuery();
+                        return true;
+                    }
+                    else
+                        return false;
                 }
                 catch (SqlException)
                 {
-                    //throw;
+                    throw;
                 }
             }
         }
@@ -660,8 +664,7 @@ namespace Stationery
                 }
                 catch (SqlException)
                 {
-                    //MessageBox.Show("Заполните все данные!", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    throw;
+                    MessageBox.Show("Заполните все данные!", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
         }
@@ -701,7 +704,6 @@ namespace Stationery
                 }
                 catch (SqlException)
                 {
-                    //throw;
                     MessageBox.Show("Заполните все данные!", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
@@ -740,7 +742,6 @@ namespace Stationery
                 }
                 catch (SqlException)
                 {
-                    //throw;
                     MessageBox.Show("Заполните все данные!", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
@@ -781,7 +782,6 @@ namespace Stationery
                 }
                 catch (SqlException)
                 {
-                    //throw;
                     MessageBox.Show("Заполните все данные!", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
@@ -818,7 +818,6 @@ namespace Stationery
                 }
                 catch (SqlException)
                 {
-                    //throw;
                     MessageBox.Show("Заполните все данные!", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
@@ -831,7 +830,7 @@ namespace Stationery
                 curRow = dgvDeliveries.SelectedRows[0].Index;
 
             using (con = new SqlConnection(conStr))
-            using (cmd = new SqlCommand("EXEC ProductsInfoUpdate @code, @product, @count, @price", con))
+            using (cmd = new SqlCommand("EXEC ProductsInfoUpdate @code, @product, @count, @price, @old_count", con))
             {
                 cmd.Parameters.AddWithValue("@code", code);
                 if (ddProductsUpd.SelectedIndex != -1)
@@ -840,6 +839,7 @@ namespace Stationery
                     cmd.Parameters.AddWithValue("@product", dgvDeliveries[6, curRow].Value.ToString());
                 cmd.Parameters.AddWithValue("@count", tbUpdCountProductsInfo.Text);
                 cmd.Parameters.AddWithValue("@price", tbUpdPriceProductsInfo.Text);
+                cmd.Parameters.AddWithValue("@old_count", dgvDeliveries[8, curRow].Value.ToString());
 
                 try
                 {
@@ -872,7 +872,6 @@ namespace Stationery
             
                 catch (SqlException)
                 {
-                    //throw;
                     MessageBox.Show("Заполните все данные!", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
@@ -931,7 +930,6 @@ namespace Stationery
                 }
                 catch (SqlException)
                 {
-                    //throw;
                     MessageBox.Show("Заполните все данные!", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
@@ -970,7 +968,7 @@ namespace Stationery
                 }
                 catch (SqlException)
                 {
-                    //throw;
+                    throw;
                 }
             }
         }
@@ -993,7 +991,7 @@ namespace Stationery
                 }
                 catch (SqlException)
                 {
-                    //throw;
+                    throw;
                 }
             }
         }
@@ -1016,7 +1014,7 @@ namespace Stationery
                 }
                 catch (SqlException)
                 {
-                    //throw;
+                    throw;
                 }
             }
         }
@@ -1039,7 +1037,7 @@ namespace Stationery
                 }
                 catch (SqlException)
                 {
-                    //throw;
+                    throw;
                 }
             }
         }
@@ -1062,7 +1060,7 @@ namespace Stationery
                 }
                 catch (SqlException)
                 {
-                    //throw;
+                    throw;
                 }
             }
         }
@@ -1116,7 +1114,7 @@ namespace Stationery
                 }
                 catch (SqlException)
                 {
-                    //throw;
+                    throw;
                 }
             }
         }
@@ -1155,7 +1153,7 @@ namespace Stationery
                 }
                 catch (SqlException)
                 {
-                    //throw;
+                    throw;
                 }
             }
         }
@@ -1195,7 +1193,7 @@ namespace Stationery
                 }
                 catch (SqlException)
                 {
-                    //throw;
+                    throw;
                 }
             }
         }
@@ -1255,7 +1253,7 @@ namespace Stationery
                 }
                 catch (SqlException)
                 {
-                    //throw;
+                    throw;
                 }
             }
         }
@@ -1312,7 +1310,7 @@ namespace Stationery
                 }
                 catch (SqlException)
                 {
-                    //throw;
+                    throw;
                 }
             }
         }
@@ -1472,9 +1470,6 @@ namespace Stationery
                 curRow = dgvAlloc.SelectedRows[0].Index;
 
                 AllocationUpdate(Convert.ToInt32(dgvAlloc[0, curRow].Value.ToString()));
-
-                //dgvAllocation.Rows.Clear();
-                //AllocationFill();
             }
             else MessageBox.Show("Строка не выбрана!", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
@@ -1541,6 +1536,7 @@ namespace Stationery
         private void btnAlloc_Click(object sender, EventArgs e)
         {
             button_Click(sender, e);
+            print.Visible = true;
             pages.SetPage("Выдача");
         }
 
@@ -1566,12 +1562,14 @@ namespace Stationery
         private void btnDeliveries_Click(object sender, EventArgs e)
         {
             button_Click(sender, e);
+            print.Visible = false;
             pages.SetPage("Поставки");
         }
 
         private void btnProviders_Click(object sender, EventArgs e)
         {
             button_Click(sender, e);
+            print.Visible = false;
             pages.SetPage("Поставщики");
         }
 
@@ -1600,6 +1598,7 @@ namespace Stationery
         private void btnProducts_sprav_Click(object sender, EventArgs e)
         {
             button_Click(sender, e);
+            print.Visible = false;
             pages.SetPage("Канцтовары_справочник");
         }
 
@@ -1612,6 +1611,7 @@ namespace Stationery
         private void btnStaff_Click(object sender, EventArgs e)
         {
             button_Click(sender, e);
+            print.Visible = false;
             pages.SetPage("Сотрудники");
         }
 
@@ -1745,14 +1745,7 @@ namespace Stationery
                                 worksheet.Range["F" + i].Value = localReader[3].ToString();
                                 worksheet.Range["G" + i].Value = localReader[4].ToString();
                                 worksheet.Range["A12"].Value = localReader[5].ToString();
-
-                                //Range range = worksheet.get_Range(worksheet.Cells[24, 1], worksheet.Cells[i, 5]);
-                                //range.Borders.get_Item(XlBordersIndex.xlEdgeBottom).LineStyle = XlLineStyle.xlContinuous;
-                                //range.Borders.get_Item(XlBordersIndex.xlEdgeRight).LineStyle = XlLineStyle.xlContinuous;
-                                //range.Borders.get_Item(XlBordersIndex.xlInsideHorizontal).LineStyle = XlLineStyle.xlContinuous;
-                                //range.Borders.get_Item(XlBordersIndex.xlInsideVertical).LineStyle = XlLineStyle.xlContinuous;
-                                //range.Borders.get_Item(XlBordersIndex.xlEdgeTop).LineStyle = XlLineStyle.xlContinuous;
-
+                                
                                 i++;
                             }                       
                     }
@@ -1779,9 +1772,9 @@ namespace Stationery
                             while (reader.Read())
                             {
                                 worksheet.Range["A" + i].Value = "Итого";
-                                worksheet.Range["E" + i].Formula = reader[0].ToString();//"=СУММ(E24:" + "E" + under + ")";
-                                worksheet.Range["F" + i].Formula = reader[1].ToString();//"=СУММ(F24:" + "F" + under + ")";
-                                worksheet.Range["G" + i].Formula = reader[2].ToString();//"=СУММ(G24:" + "G" + under + ")";
+                                worksheet.Range["E" + i].Formula = reader[0].ToString();
+                                worksheet.Range["F" + i].Formula = reader[1].ToString();
+                                worksheet.Range["G" + i].Formula = reader[2].ToString();
                             }
 
                         application.Visible = true;
@@ -1789,7 +1782,7 @@ namespace Stationery
                     }
                     catch (SqlException)
                     {
-                        //throw;
+                        throw;
                     }
                 }
             }
